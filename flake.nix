@@ -29,6 +29,7 @@
               ## Go
               go
               gomarkdoc
+              golangci-lint
               # go # compiler
               # gopls # language server
               # gomacro

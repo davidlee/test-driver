@@ -19,3 +19,6 @@ prod id:
 
 delta id:
   glow $(spec-driver show delta {{id}} --path) --pager
+
+dr id:
+  glow $(fd DR-{{id}} change/deltas) --pager
