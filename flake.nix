@@ -30,11 +30,8 @@
               go
               gomarkdoc
               golangci-lint
-              # go # compiler
-              # gopls # language server
-              # gomacro
-              # gofumpt # strict formatter
-              # golangci-lint # linter
+              gofumpt # strict formatter
+              gopls # language server
 
               # python
               uv
