@@ -45,6 +45,7 @@ requirements:
     - PROD-001.FR-015
     - PROD-001.FR-016
     - PROD-001.FR-017
+    - PROD-001.FR-018
   collaborators: []
 interactions: []
 ```
@@ -89,7 +90,7 @@ capabilities:
       - Accept input after -- separator
       - Read from stdin when piped
       - Open $EDITOR for interactive composition
-    requirements: [FR-005, FR-006, FR-007, FR-008, FR-009, FR-010]
+    requirements: [FR-005, FR-006, FR-007, FR-008, FR-009, FR-010, FR-018]
     summary: >-
       Multiple input modes so the user can capture thoughts however is
       most natural: quick one-liners from the shell, multi-line editor
@@ -228,12 +229,12 @@ entries:
     notes: go build ./cmd/im produces single binary; just install places at ~/.local/bin/im
   - artefact: VT-013
     kind: VT
-    requirement: PROD-001.FR-008
+    requirement: PROD-001.FR-018
     status: verified
     notes: internal/editor/editor_test.go — 22 tests (detection, save logic, validation); cmd/im/main_test.go — runEditorMode saves content, handles abort
   - artefact: VH-001
     kind: VH
-    requirement: PROD-001.FR-008
+    requirement: PROD-001.FR-018
     status: verified
     notes: "Manual: neovim, emacs, helix, vscode, nano — open, compose, save, entry appended"
   - artefact: VH-004
@@ -321,9 +322,12 @@ entries:
 
 - **FR-007**: System MUST read entry body from stdin when input is piped.
 
-- **FR-008**: When invoked with no arguments and stdin is a TTY, system MUST
+- **FR-008**: Editor mode MUST work correctly with zed (requires `--wait` flag
+  support). Blocked on upstream zed `--wait` reliability.
+
+- **FR-018**: When invoked with no arguments and stdin is a TTY, system MUST
   open `$EDITOR` (or a configured editor) for entry composition. Editor mode
-  MUST work correctly with neovim, emacs, helix, zed, and vscode.
+  MUST work correctly with neovim, emacs, helix, and vscode.
 
 - **FR-009**: When `-t` flag is provided, each line of the entry body MUST be
   prefixed with `- [ ] ` to produce Markdown task items.
