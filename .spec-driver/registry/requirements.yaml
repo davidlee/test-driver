@@ -1,1 +1,213 @@
-requirements: {}
+requirements:
+  PROD-001.FR-001:
+    label: FR-001
+    title: System MUST create `<log_dir>/YYYY-MM-DD.md` on first invocation
+    specs:
+    - PROD-001
+    primary_spec: PROD-001
+    kind: functional
+    category: null
+    status: pending
+    tags: []
+    introduced: null
+    implemented_by: []
+    verified_by: []
+    coverage_evidence: []
+    path: specify/product/PROD-001/PROD-001.md
+  PROD-001.FR-002:
+    label: FR-002
+    title: System MUST append entries to an existing daily file without
+    specs:
+    - PROD-001
+    primary_spec: PROD-001
+    kind: functional
+    category: null
+    status: pending
+    tags: []
+    introduced: null
+    implemented_by: []
+    verified_by: []
+    coverage_evidence: []
+    path: specify/product/PROD-001/PROD-001.md
+  PROD-001.FR-003:
+    label: FR-003
+    title: The log directory MUST default to `~/log` and be overridable
+    specs:
+    - PROD-001
+    primary_spec: PROD-001
+    kind: functional
+    category: null
+    status: pending
+    tags: []
+    introduced: null
+    implemented_by: []
+    verified_by: []
+    coverage_evidence: []
+    path: specify/product/PROD-001/PROD-001.md
+  PROD-001.FR-004:
+    label: FR-004
+    title: 'Timestamp subheading (level 2) emission rules:'
+    specs:
+    - PROD-001
+    primary_spec: PROD-001
+    kind: functional
+    category: null
+    status: pending
+    tags: []
+    introduced: null
+    implemented_by: []
+    verified_by: []
+    coverage_evidence: []
+    path: specify/product/PROD-001/PROD-001.md
+  PROD-001.FR-005:
+    label: FR-005
+    title: System MUST accept positional arguments as the entry body
+    specs:
+    - PROD-001
+    primary_spec: PROD-001
+    kind: functional
+    category: null
+    status: pending
+    tags: []
+    introduced: null
+    implemented_by: []
+    verified_by: []
+    coverage_evidence: []
+    path: specify/product/PROD-001/PROD-001.md
+  PROD-001.FR-006:
+    label: FR-006
+    title: System MUST accept entry text after a `--` separator
+    specs:
+    - PROD-001
+    primary_spec: PROD-001
+    kind: functional
+    category: null
+    status: pending
+    tags: []
+    introduced: null
+    implemented_by: []
+    verified_by: []
+    coverage_evidence: []
+    path: specify/product/PROD-001/PROD-001.md
+  PROD-001.FR-007:
+    label: FR-007
+    title: System MUST read entry body from stdin when input is piped.
+    specs:
+    - PROD-001
+    primary_spec: PROD-001
+    kind: functional
+    category: null
+    status: pending
+    tags: []
+    introduced: null
+    implemented_by: []
+    verified_by: []
+    coverage_evidence: []
+    path: specify/product/PROD-001/PROD-001.md
+  PROD-001.FR-008:
+    label: FR-008
+    title: When invoked with no arguments and stdin is a TTY, system MUST
+    specs:
+    - PROD-001
+    primary_spec: PROD-001
+    kind: functional
+    category: null
+    status: pending
+    tags: []
+    introduced: null
+    implemented_by: []
+    verified_by: []
+    coverage_evidence: []
+    path: specify/product/PROD-001/PROD-001.md
+  PROD-001.FR-009:
+    label: FR-009
+    title: When `-t` flag is provided, each line of the entry body MUST be
+    specs:
+    - PROD-001
+    primary_spec: PROD-001
+    kind: functional
+    category: null
+    status: pending
+    tags: []
+    introduced: null
+    implemented_by: []
+    verified_by: []
+    coverage_evidence: []
+    path: specify/product/PROD-001/PROD-001.md
+  PROD-001.FR-010:
+    label: FR-010
+    title: In editor mode, the timestamp applied to the entry MUST be
+    specs:
+    - PROD-001
+    primary_spec: PROD-001
+    kind: functional
+    category: null
+    status: pending
+    tags: []
+    introduced: null
+    implemented_by: []
+    verified_by: []
+    coverage_evidence: []
+    path: specify/product/PROD-001/PROD-001.md
+  PROD-001.FR-011:
+    label: FR-011
+    title: Timestamp rounding strategy MUST be configurable via `im.toml`
+    specs:
+    - PROD-001
+    primary_spec: PROD-001
+    kind: functional
+    category: null
+    status: pending
+    tags: []
+    introduced: null
+    implemented_by: []
+    verified_by: []
+    coverage_evidence: []
+    path: specify/product/PROD-001/PROD-001.md
+  PROD-001.NF-001:
+    label: NF-001
+    title: System MUST work with zero configuration on first run. Optional
+    specs:
+    - PROD-001
+    primary_spec: PROD-001
+    kind: non-functional
+    category: null
+    status: pending
+    tags: []
+    introduced: null
+    implemented_by:
+    - DE-001
+    verified_by: []
+    coverage_evidence: []
+    path: specify/product/PROD-001/PROD-001.md
+  PROD-001.NF-002:
+    label: NF-002
+    title: Time from invocation to entry written MUST be < 100 ms for
+    specs:
+    - PROD-001
+    primary_spec: PROD-001
+    kind: non-functional
+    category: null
+    status: pending
+    tags: []
+    introduced: null
+    implemented_by: []
+    verified_by: []
+    coverage_evidence: []
+    path: specify/product/PROD-001/PROD-001.md
+  PROD-001.NF-003:
+    label: NF-003
+    title: Binary MUST be a single statically-linked Go executable named
+    specs:
+    - PROD-001
+    primary_spec: PROD-001
+    kind: non-functional
+    category: null
+    status: pending
+    tags: []
+    introduced: null
+    implemented_by:
+    - DE-001
+    verified_by: []
+    coverage_evidence: []
+    path: specify/product/PROD-001/PROD-001.md
