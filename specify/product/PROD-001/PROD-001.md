@@ -40,6 +40,11 @@ requirements:
     - PROD-001.NF-001
     - PROD-001.NF-002
     - PROD-001.NF-003
+    - PROD-001.FR-013
+    - PROD-001.FR-014
+    - PROD-001.FR-015
+    - PROD-001.FR-016
+    - PROD-001.FR-017
   collaborators: []
 interactions: []
 ```
@@ -110,21 +115,117 @@ capabilities:
   - id: read-mode
     name: Read Mode
     responsibilities:
-      - Display today's log file in a pager or viewer
-    requirements: [FR-012]
+      - Render today's log to stdout (glow or cat)
+      - Display today's log in a pager
+      - Print today's file path for shell composition
+    requirements: [FR-012, FR-013, FR-017]
     summary: >-
-      The -r flag displays today's log using the first available viewer
-      ($PAGER, glow, or cat), letting the user review the day's entries
-      without leaving the terminal.
+      The -r flag renders today's log to stdout via glow (if available)
+      or cat — quick, no pager. The -p flag opens the log in a pager
+      (glow --pager, rich --markdown --pager, $PAGER, or cat). The -f
+      flag prints the absolute file path for shell composition.
     success_criteria:
-      - `im -r` displays today's log file contents
+      - `im -r` renders to stdout without a pager
+      - `im -p` opens in a pager
+      - `im -f` prints the absolute path to today's log file
+
+  - id: file-template
+    name: File Template Engine
+    responsibilities:
+      - Render daily file from a configurable Markdown template
+      - Support dynamic variables in template context
+      - Update frontmatter `updated_at` on entry append (when present)
+    requirements: [FR-014, FR-015]
+    summary: >-
+      Daily files are created from a Go text/template. The template
+      receives dynamic variables: created_at, updated_at, id (7-char
+      nanoID), and title (from a configurable format string). When a
+      file's frontmatter contains updated_at, it is patched on each
+      append. If the field is absent, the append path is pure append.
+    success_criteria:
+      - Default template produces same format as current hardcoded output
+      - Custom template with frontmatter renders correctly on file creation
+      - updated_at is refreshed on append when present in frontmatter
+      - updated_at is left alone (no mutation) when absent from file
+
+  - id: time-format
+    name: Time Format Configuration
+    responsibilities:
+      - Support 24-hour and 12-hour timestamp display
+    requirements: [FR-016]
+    summary: >-
+      Timestamp subheadings support 24h (default) or 12h format with
+      AM/PM, configurable via im.toml key time_format.
+    success_criteria:
+      - 24h mode produces `## 14:30`
+      - 12h mode produces `## 2:30 PM`
 ```
 
 ```yaml supekku:verification.coverage@v1
 schema: supekku.verification.coverage
 version: 1
 subject: PROD-001
-entries: []
+entries:
+  - artefact: VT-001
+    kind: VT
+    requirement: PROD-001.FR-001
+    status: verified
+    notes: internal/logfile/appender_test.go — TestAppender_NewFile creates YYYY-MM-DD.md with date heading
+  - artefact: VT-002
+    kind: VT
+    requirement: PROD-001.FR-002
+    status: verified
+    notes: internal/logfile/appender_test.go — TestAppender_PriorContentUnmodified
+  - artefact: VT-003
+    kind: VT
+    requirement: PROD-001.FR-003
+    status: verified
+    notes: internal/config/config_test.go — defaults to ~/log, overridable via im.toml
+  - artefact: VT-004
+    kind: VT
+    requirement: PROD-001.FR-004
+    status: verified
+    notes: internal/logfile/timestamp_test.go — 13 cases covering adaptive strategy emission rules
+  - artefact: VT-005
+    kind: VT
+    requirement: PROD-001.FR-005
+    status: verified
+    notes: Smoke tested — positional args joined as entry body
+  - artefact: VT-006
+    kind: VT
+    requirement: PROD-001.FR-006
+    status: verified
+    notes: Smoke tested — -- separator passes remaining args as entry body
+  - artefact: VT-007
+    kind: VT
+    requirement: PROD-001.FR-007
+    status: verified
+    notes: Smoke tested — piped stdin read via io.ReadAll in cmd/im/main.go
+  - artefact: VT-008
+    kind: VT
+    requirement: PROD-001.FR-009
+    status: verified
+    notes: internal/entry/entry_test.go — task prefix "- [ ] " applied to each non-empty line
+  - artefact: VT-009
+    kind: VT
+    requirement: PROD-001.FR-011
+    status: verified
+    notes: internal/logfile/timestamp_test.go — round10 strategy cases; config enum validated
+  - artefact: VT-010
+    kind: VT
+    requirement: PROD-001.FR-012
+    status: verified
+    notes: internal/reader/reader_test.go — viewer dispatch chain, ErrNoFile handling
+  - artefact: VT-011
+    kind: VT
+    requirement: PROD-001.NF-001
+    status: verified
+    notes: internal/config/config_test.go — zero-config defaults, optional TOML overrides
+  - artefact: VT-012
+    kind: VT
+    requirement: PROD-001.NF-003
+    status: verified
+    notes: go build ./cmd/im produces single binary; just install places at ~/.local/bin/im
 ```
 
 ## 1. Intent & Summary
@@ -144,7 +245,8 @@ entries: []
   - Human-readable output — plain Markdown, no database
   - Do one thing well — capture, not search or analytics
 
-- **Change History**: Initial specification.
+- **Change History**: Initial specification. RE-003: added FR-013–FR-016
+  (file path flag, template engine, dynamic variables, 12h time format).
 
 ## 2. Stakeholders & Journeys
 
@@ -216,8 +318,38 @@ entries: []
     10m, exact after gaps).
   - `"round10"` — always round down to the nearest 10-minute boundary.
 
-- **FR-012**: When `-r` flag is provided, system MUST display today's log file
-  using the first available viewer: `$PAGER`, `glow`, or `cat`.
+- **FR-012**: When `-r` flag is provided, system MUST render today's log file
+  to stdout using `glow` (if available) or `cat`. No pager. Output goes
+  directly to the terminal.
+
+- **FR-017**: When `-p` flag is provided, system MUST display today's log file
+  in a pager using the first available viewer: `glow --pager`,
+  `rich --markdown --pager`, `$PAGER`, or `cat`.
+
+- **FR-013**: When `-f` flag is provided, system MUST print the absolute path
+  to today's log file to stdout and exit. No entry is written.
+
+- **FR-014**: Daily file format MUST be defined by an editable Markdown template
+  using Go `text/template` syntax. Default template location:
+  `~/.config/im/template.md`. A bundled default template MUST produce output
+  equivalent to the current hardcoded format when no custom template exists.
+
+- **FR-015**: The template engine MUST support the following dynamic variables:
+  - `created_at` — file creation timestamp, format `YYYY-MM-DD HH:MM`
+  - `updated_at` — last entry timestamp, format `YYYY-MM-DD HH:MM`
+  - `id` — 7-character nanoID (`github.com/matoous/go-nanoid/v2`), generated
+    once per file on creation
+  - `title` — rendered from a configurable format string in `im.toml`
+    (key: `title_format`, e.g. `title_format = "Log — {{ date }}"`)
+
+  When a file's YAML frontmatter contains an `updated_at` field, it MUST be
+  refreshed on each entry append. When `updated_at` is absent from the file,
+  the append path MUST NOT mutate prior content.
+
+- **FR-016**: Timestamp subheadings MUST support 12-hour format with AM/PM,
+  configurable via `im.toml` key `time_format` with values:
+  - `"24h"` (default) — `## 14:30`
+  - `"12h"` — `## 2:30 PM`
 
 ### Non-Functional Requirements
 
@@ -240,7 +372,11 @@ entries: []
 - **Binary**: `im`, built with Go, single-file distribution.
 - **Config**: `~/.config/im/im.toml` — optional, keys: `log_dir`, `editor`,
   `editor_timestamp` (`"start"` | `"end"`),
-  `timestamp_rounding` (`"adaptive"` | `"round10"`).
+  `timestamp_rounding` (`"adaptive"` | `"round10"`),
+  `time_format` (`"24h"` | `"12h"`), `title_format` (Go template string).
+- **Template**: `~/.config/im/template.md` — optional Go `text/template`
+  defining daily file structure. Variables: `created_at`, `updated_at`, `id`,
+  `title`, `date`.
 - **Output format**:
   ```markdown
   # Wednesday, 23 January 2026

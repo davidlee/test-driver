@@ -7,14 +7,18 @@ requirements:
     primary_spec: PROD-001
     kind: functional
     category: null
-    status: pending
+    status: active
     tags: []
     introduced: null
     implemented_by:
     - DE-002
     verified_by: []
-    coverage_evidence: []
-    coverage_entries: []
+    coverage_evidence:
+    - VT-001
+    coverage_entries:
+    - artefact: VT-001
+      status: verified
+      kind: VT
     path: specify/product/PROD-001/PROD-001.md
   PROD-001.FR-002:
     label: FR-002
@@ -24,14 +28,18 @@ requirements:
     primary_spec: PROD-001
     kind: functional
     category: null
-    status: pending
+    status: active
     tags: []
     introduced: null
     implemented_by:
     - DE-002
     verified_by: []
-    coverage_evidence: []
-    coverage_entries: []
+    coverage_evidence:
+    - VT-002
+    coverage_entries:
+    - artefact: VT-002
+      status: verified
+      kind: VT
     path: specify/product/PROD-001/PROD-001.md
   PROD-001.FR-003:
     label: FR-003
@@ -41,14 +49,18 @@ requirements:
     primary_spec: PROD-001
     kind: functional
     category: null
-    status: pending
+    status: active
     tags: []
     introduced: null
     implemented_by:
     - DE-002
     verified_by: []
-    coverage_evidence: []
-    coverage_entries: []
+    coverage_evidence:
+    - VT-003
+    coverage_entries:
+    - artefact: VT-003
+      status: verified
+      kind: VT
     path: specify/product/PROD-001/PROD-001.md
   PROD-001.FR-004:
     label: FR-004
@@ -58,14 +70,18 @@ requirements:
     primary_spec: PROD-001
     kind: functional
     category: null
-    status: pending
+    status: active
     tags: []
     introduced: null
     implemented_by:
     - DE-002
     verified_by: []
-    coverage_evidence: []
-    coverage_entries: []
+    coverage_evidence:
+    - VT-004
+    coverage_entries:
+    - artefact: VT-004
+      status: verified
+      kind: VT
     path: specify/product/PROD-001/PROD-001.md
   PROD-001.FR-005:
     label: FR-005
@@ -75,14 +91,18 @@ requirements:
     primary_spec: PROD-001
     kind: functional
     category: null
-    status: pending
+    status: active
     tags: []
     introduced: null
     implemented_by:
     - DE-002
     verified_by: []
-    coverage_evidence: []
-    coverage_entries: []
+    coverage_evidence:
+    - VT-005
+    coverage_entries:
+    - artefact: VT-005
+      status: verified
+      kind: VT
     path: specify/product/PROD-001/PROD-001.md
   PROD-001.FR-006:
     label: FR-006
@@ -92,14 +112,18 @@ requirements:
     primary_spec: PROD-001
     kind: functional
     category: null
-    status: pending
+    status: active
     tags: []
     introduced: null
     implemented_by:
     - DE-002
     verified_by: []
-    coverage_evidence: []
-    coverage_entries: []
+    coverage_evidence:
+    - VT-006
+    coverage_entries:
+    - artefact: VT-006
+      status: verified
+      kind: VT
     path: specify/product/PROD-001/PROD-001.md
   PROD-001.FR-007:
     label: FR-007
@@ -109,14 +133,18 @@ requirements:
     primary_spec: PROD-001
     kind: functional
     category: null
-    status: pending
+    status: active
     tags: []
     introduced: null
     implemented_by:
     - DE-002
     verified_by: []
-    coverage_evidence: []
-    coverage_entries: []
+    coverage_evidence:
+    - VT-007
+    coverage_entries:
+    - artefact: VT-007
+      status: verified
+      kind: VT
     path: specify/product/PROD-001/PROD-001.md
   PROD-001.FR-008:
     label: FR-008
@@ -129,7 +157,8 @@ requirements:
     status: pending
     tags: []
     introduced: null
-    implemented_by: []
+    implemented_by:
+    - DE-003
     verified_by: []
     coverage_evidence: []
     coverage_entries: []
@@ -142,18 +171,81 @@ requirements:
     primary_spec: PROD-001
     kind: functional
     category: null
-    status: pending
+    status: active
     tags: []
     introduced: null
     implemented_by:
     - DE-002
     verified_by: []
-    coverage_evidence: []
-    coverage_entries: []
+    coverage_evidence:
+    - VT-008
+    coverage_entries:
+    - artefact: VT-008
+      status: verified
+      kind: VT
     path: specify/product/PROD-001/PROD-001.md
   PROD-001.FR-010:
     label: FR-010
     title: In editor mode, the timestamp applied to the entry MUST be
+    specs:
+    - PROD-001
+    primary_spec: PROD-001
+    kind: functional
+    category: null
+    status: pending
+    tags: []
+    introduced: null
+    implemented_by:
+    - DE-003
+    verified_by: []
+    coverage_evidence: []
+    coverage_entries: []
+    path: specify/product/PROD-001/PROD-001.md
+  PROD-001.FR-011:
+    label: FR-011
+    title: Timestamp rounding strategy MUST be configurable via `im.toml`
+    specs:
+    - PROD-001
+    primary_spec: PROD-001
+    kind: functional
+    category: null
+    status: active
+    tags: []
+    introduced: null
+    implemented_by:
+    - DE-002
+    verified_by: []
+    coverage_evidence:
+    - VT-009
+    coverage_entries:
+    - artefact: VT-009
+      status: verified
+      kind: VT
+    path: specify/product/PROD-001/PROD-001.md
+  PROD-001.FR-012:
+    label: FR-012
+    title: When `-r` flag is provided, system MUST render today's log file
+    specs:
+    - PROD-001
+    primary_spec: PROD-001
+    kind: functional
+    category: null
+    status: active
+    tags: []
+    introduced: null
+    implemented_by:
+    - DE-002
+    verified_by: []
+    coverage_evidence:
+    - VT-010
+    coverage_entries:
+    - artefact: VT-010
+      status: verified
+      kind: VT
+    path: specify/product/PROD-001/PROD-001.md
+  PROD-001.FR-013:
+    label: FR-013
+    title: When `-f` flag is provided, system MUST print the absolute path
     specs:
     - PROD-001
     primary_spec: PROD-001
@@ -167,9 +259,9 @@ requirements:
     coverage_evidence: []
     coverage_entries: []
     path: specify/product/PROD-001/PROD-001.md
-  PROD-001.FR-011:
-    label: FR-011
-    title: Timestamp rounding strategy MUST be configurable via `im.toml`
+  PROD-001.FR-014:
+    label: FR-014
+    title: Daily file format MUST be defined by an editable Markdown template
     specs:
     - PROD-001
     primary_spec: PROD-001
@@ -178,15 +270,14 @@ requirements:
     status: pending
     tags: []
     introduced: null
-    implemented_by:
-    - DE-002
+    implemented_by: []
     verified_by: []
     coverage_evidence: []
     coverage_entries: []
     path: specify/product/PROD-001/PROD-001.md
-  PROD-001.FR-012:
-    label: FR-012
-    title: When `-r` flag is provided, system MUST display today's log file
+  PROD-001.FR-015:
+    label: FR-015
+    title: 'The template engine MUST support the following dynamic variables:'
     specs:
     - PROD-001
     primary_spec: PROD-001
@@ -195,8 +286,39 @@ requirements:
     status: pending
     tags: []
     introduced: null
-    implemented_by:
-    - DE-002
+    implemented_by: []
+    verified_by: []
+    coverage_evidence: []
+    coverage_entries: []
+    path: specify/product/PROD-001/PROD-001.md
+  PROD-001.FR-016:
+    label: FR-016
+    title: Timestamp subheadings MUST support 12-hour format with AM/PM,
+    specs:
+    - PROD-001
+    primary_spec: PROD-001
+    kind: functional
+    category: null
+    status: pending
+    tags: []
+    introduced: null
+    implemented_by: []
+    verified_by: []
+    coverage_evidence: []
+    coverage_entries: []
+    path: specify/product/PROD-001/PROD-001.md
+  PROD-001.FR-017:
+    label: FR-017
+    title: When `-p` flag is provided, system MUST display today's log file
+    specs:
+    - PROD-001
+    primary_spec: PROD-001
+    kind: functional
+    category: null
+    status: pending
+    tags: []
+    introduced: null
+    implemented_by: []
     verified_by: []
     coverage_evidence: []
     coverage_entries: []
@@ -209,14 +331,18 @@ requirements:
     primary_spec: PROD-001
     kind: non-functional
     category: null
-    status: pending
+    status: active
     tags: []
     introduced: null
     implemented_by:
     - DE-001
     verified_by: []
-    coverage_evidence: []
-    coverage_entries: []
+    coverage_evidence:
+    - VT-011
+    coverage_entries:
+    - artefact: VT-011
+      status: verified
+      kind: VT
     path: specify/product/PROD-001/PROD-001.md
   PROD-001.NF-002:
     label: NF-002
@@ -242,14 +368,18 @@ requirements:
     primary_spec: PROD-001
     kind: non-functional
     category: null
-    status: pending
+    status: active
     tags: []
     introduced: null
     implemented_by:
     - DE-001
     verified_by: []
-    coverage_evidence: []
-    coverage_entries: []
+    coverage_evidence:
+    - VT-012
+    coverage_entries:
+    - artefact: VT-012
+      status: verified
+      kind: VT
     path: specify/product/PROD-001/PROD-001.md
   SPEC-001.FR-001:
     label: FR-001
