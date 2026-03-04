@@ -226,6 +226,26 @@ entries:
     requirement: PROD-001.NF-003
     status: verified
     notes: go build ./cmd/im produces single binary; just install places at ~/.local/bin/im
+  - artefact: VT-013
+    kind: VT
+    requirement: PROD-001.FR-008
+    status: verified
+    notes: internal/editor/editor_test.go — 22 tests (detection, save logic, validation); cmd/im/main_test.go — runEditorMode saves content, handles abort
+  - artefact: VH-001
+    kind: VH
+    requirement: PROD-001.FR-008
+    status: verified
+    notes: "Manual: neovim, emacs, helix, vscode, nano — open, compose, save, entry appended"
+  - artefact: VH-004
+    kind: VH
+    requirement: PROD-001.FR-008
+    status: deferred
+    notes: "Manual: zed --wait unreliable, editor returns immediately. Deferred."
+  - artefact: VT-014
+    kind: VT
+    requirement: PROD-001.FR-010
+    status: verified
+    notes: cmd/im/main_test.go — TestRunEditorMode_TimestampEnd verifies end-time selection; start-time default covered by TestRunEditorMode_SavesContent
 ```
 
 ## 1. Intent & Summary

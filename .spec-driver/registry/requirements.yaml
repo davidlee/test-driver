@@ -154,14 +154,26 @@ requirements:
     primary_spec: PROD-001
     kind: functional
     category: null
-    status: pending
+    status: active
     tags: []
     introduced: null
     implemented_by:
     - DE-003
     verified_by: []
-    coverage_evidence: []
-    coverage_entries: []
+    coverage_evidence:
+    - VH-001
+    - VH-004
+    - VT-013
+    coverage_entries:
+    - artefact: VT-013
+      status: verified
+      kind: VT
+    - artefact: VH-001
+      status: verified
+      kind: VH
+    - artefact: VH-004
+      status: deferred
+      kind: VH
     path: specify/product/PROD-001/PROD-001.md
   PROD-001.FR-009:
     label: FR-009
@@ -192,14 +204,18 @@ requirements:
     primary_spec: PROD-001
     kind: functional
     category: null
-    status: pending
+    status: active
     tags: []
     introduced: null
     implemented_by:
     - DE-003
     verified_by: []
-    coverage_evidence: []
-    coverage_entries: []
+    coverage_evidence:
+    - VT-014
+    coverage_entries:
+    - artefact: VT-014
+      status: verified
+      kind: VT
     path: specify/product/PROD-001/PROD-001.md
   PROD-001.FR-011:
     label: FR-011
