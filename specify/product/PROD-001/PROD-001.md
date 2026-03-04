@@ -239,7 +239,7 @@ entries:
   - artefact: VH-004
     kind: VH
     requirement: PROD-001.FR-008
-    status: deferred
+    status: planned
     notes: "Manual: zed --wait unreliable, editor returns immediately. Deferred."
   - artefact: VT-014
     kind: VT

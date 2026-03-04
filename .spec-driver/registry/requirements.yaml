@@ -154,7 +154,7 @@ requirements:
     primary_spec: PROD-001
     kind: functional
     category: null
-    status: active
+    status: in-progress
     tags: []
     introduced: null
     implemented_by:
@@ -172,7 +172,7 @@ requirements:
       status: verified
       kind: VH
     - artefact: VH-004
-      status: deferred
+      status: planned
       kind: VH
     path: specify/product/PROD-001/PROD-001.md
   PROD-001.FR-009:
