@@ -9,4 +9,7 @@ require (
 	golang.org/x/term v0.40.0
 )
 
-require golang.org/x/sys v0.41.0 // indirect
+require (
+	github.com/confluentinc/go-editor v0.11.0 // indirect
+	golang.org/x/sys v0.41.0 // indirect
+)
