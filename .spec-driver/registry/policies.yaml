@@ -1,0 +1,10 @@
+policies:
+  POL-001:
+    id: POL-001
+    title: 'POL-001: Zero tolerance for test failures and lint warnings'
+    status: required
+    path: specify/policies/POL-001-zero_tolerance_for_test_failures_and_lint_warnings.md
+    summary: ''
+    created: '2026-03-04'
+    updated: '2026-03-04'
+    reviewed: '2026-03-04'
