@@ -15,19 +15,19 @@ summary: "Active context for DE-002 core entry writing and read mode — decisio
 
 ## Current status
 
-- **DE-002** scoped and validated. Delta doc filled in.
-- **DR-002** drafted — all 7 design decisions resolved, document written.
-- **IP** not yet created.
-- **FR-012** (read mode / `-r`) added to PROD-001 and synced.
-- All DE-001 code is merged (scaffold: config, CLI flags, input mode detection).
-- Uncommitted: PROD-001 spec update (FR-012), DE-002 delta, DR-002 draft.
+- **DE-002** implementation complete — all 3 phases done.
+- **DR-002** drafted and approved.
+- **IP-002** all phases complete, pending audit.
+- New packages: `internal/entry`, `internal/logfile`, `internal/reader`.
+- `cmd/im/main.go` wired — diagnostic stubs replaced with real logic.
+- Uncommitted: all DE-002 implementation + specs.
 
 ## What's next
 
-DR-002 is drafted and ready for review. Next steps:
-1. **User reviews DR-002** — approve or request changes.
-2. **Create IP (implementation plan)** — phase the work, define gates.
-3. **Begin implementation** — TDD, package by package.
+All implementation complete. Next steps:
+1. **Audit** — `/audit-change` to reconcile against specs.
+2. **Commit** — stage and commit all DE-002 work.
+3. **Close** — update DE-002 status, close delta.
 
 ## Decisions resolved (DR-002)
 

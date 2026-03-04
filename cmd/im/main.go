@@ -3,13 +3,19 @@ package main
 
 import (
 	"context"
+	"errors"
 	"fmt"
+	"io"
 	"log"
 	"os"
+	"path/filepath"
 	"strings"
+	"time"
 
 	imcli "im/internal/cli"
 	"im/internal/config"
+	"im/internal/logfile"
+	"im/internal/reader"
 
 	"github.com/urfave/cli/v3"
 )
@@ -49,29 +55,54 @@ func main() {
 }
 
 func run(_ context.Context, cmd *cli.Command, cfg config.Config) error {
-	if cmd.Bool("read") {
-		fmt.Println("read mode: not yet implemented")
-		return nil
-	}
-
-	// Gather positional args (text after flags, or after --).
-	args := cmd.Args().Slice()
-	mode := imcli.DetectInputMode(args)
-
 	logDir, err := cfg.ResolvedLogDir()
 	if err != nil {
 		return fmt.Errorf("resolving log dir: %w", err)
 	}
 
-	fmt.Printf("mode:   %s\n", mode)
-	fmt.Printf("task:   %v\n", cmd.Bool("task"))
-	fmt.Printf("logdir: %s\n", logDir)
-
-	if mode == imcli.ModeInline {
-		fmt.Printf("text:   %s\n", strings.Join(args, " "))
+	if cmd.Bool("read") {
+		return runRead(logDir)
 	}
 
-	fmt.Println("(entry writing not yet implemented)")
+	return runWrite(cmd, cfg, logDir)
+}
 
-	return nil
+func runRead(logDir string) error {
+	today := time.Now().Format("2006-01-02") + ".md"
+	path := filepath.Join(logDir, today)
+
+	err := reader.View(path)
+	if errors.Is(err, reader.ErrNoFile) {
+		fmt.Println("no entries for today")
+		return nil
+	}
+	return err
+}
+
+func runWrite(cmd *cli.Command, cfg config.Config, logDir string) error {
+	args := cmd.Args().Slice()
+	mode := imcli.DetectInputMode(args)
+
+	var body string
+	switch mode {
+	case imcli.ModeInline:
+		body = strings.Join(args, " ")
+	case imcli.ModePipe:
+		data, err := io.ReadAll(os.Stdin)
+		if err != nil {
+			return fmt.Errorf("reading stdin: %w", err)
+		}
+		body = string(data)
+	case imcli.ModeEditor:
+		fmt.Println("editor mode: not yet implemented (DE-003)")
+		return nil
+	}
+
+	// Empty input guard.
+	if strings.TrimSpace(body) == "" {
+		return nil
+	}
+
+	appender := logfile.NewAppender(time.Now, cfg)
+	return appender.Append(logDir, body, cmd.Bool("task"))
 }
