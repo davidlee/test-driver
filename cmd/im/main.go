@@ -14,6 +14,7 @@ import (
 
 	imcli "im/internal/cli"
 	"im/internal/config"
+	"im/internal/editor"
 	"im/internal/logfile"
 	"im/internal/reader"
 
@@ -94,8 +95,7 @@ func runWrite(cmd *cli.Command, cfg config.Config, logDir string) error {
 		}
 		body = string(data)
 	case imcli.ModeEditor:
-		fmt.Println("editor mode: not yet implemented (DE-003)")
-		return nil
+		return runEditorMode(cfg, logDir, cmd.Bool("task"), editor.Edit, time.Now)
 	}
 
 	// Empty input guard.
@@ -105,4 +105,32 @@ func runWrite(cmd *cli.Command, cfg config.Config, logDir string) error {
 
 	appender := logfile.NewAppender(time.Now, cfg)
 	return appender.Append(logDir, body, cmd.Bool("task"))
+}
+
+// editFunc is the signature for editor.Edit, injectable for testing.
+type editFunc func(config.Config, editor.CommandChecker) (string, error)
+
+// runEditorMode opens an external editor, captures the entry, and appends it
+// to the daily log file. Timestamp is selected per cfg.EditorTimestamp.
+func runEditorMode(cfg config.Config, logDir string, task bool, edit editFunc, clock func() time.Time) error {
+	startTime := clock()
+
+	body, err := edit(cfg, editor.DefaultCheck)
+	if err != nil {
+		return fmt.Errorf("editor: %w", err)
+	}
+
+	if strings.TrimSpace(body) == "" {
+		return nil
+	}
+
+	endTime := clock()
+
+	ts := startTime
+	if cfg.EditorTimestamp == config.EditorTimestampEnd {
+		ts = endTime
+	}
+
+	appender := logfile.NewAppender(func() time.Time { return ts }, cfg)
+	return appender.Append(logDir, body, task)
 }
