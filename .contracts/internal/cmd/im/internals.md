@@ -13,6 +13,8 @@ Package main is the entrypoint for the im CLI.
 - [Variables](<#variables>)
 - [func main\(\)](<#main>)
 - [func run\(\_ context.Context, cmd \*cli.Command, cfg config.Config\) error](<#run>)
+- [func runRead\(logDir string\) error](<#runRead>)
+- [func runWrite\(cmd \*cli.Command, cfg config.Config, logDir string\) error](<#runWrite>)
 
 
 ## Variables
@@ -37,6 +39,24 @@ func main()
 
 ```go
 func run(_ context.Context, cmd *cli.Command, cfg config.Config) error
+```
+
+
+
+<a name="runRead"></a>
+## func runRead
+
+```go
+func runRead(logDir string) error
+```
+
+
+
+<a name="runWrite"></a>
+## func runWrite
+
+```go
+func runWrite(cmd *cli.Command, cfg config.Config, logDir string) error
 ```
 
 

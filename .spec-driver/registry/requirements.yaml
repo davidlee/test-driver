@@ -10,7 +10,8 @@ requirements:
     status: pending
     tags: []
     introduced: null
-    implemented_by: []
+    implemented_by:
+    - DE-002
     verified_by: []
     coverage_evidence: []
     coverage_entries: []
@@ -26,7 +27,8 @@ requirements:
     status: pending
     tags: []
     introduced: null
-    implemented_by: []
+    implemented_by:
+    - DE-002
     verified_by: []
     coverage_evidence: []
     coverage_entries: []
@@ -42,7 +44,8 @@ requirements:
     status: pending
     tags: []
     introduced: null
-    implemented_by: []
+    implemented_by:
+    - DE-002
     verified_by: []
     coverage_evidence: []
     coverage_entries: []
@@ -58,7 +61,8 @@ requirements:
     status: pending
     tags: []
     introduced: null
-    implemented_by: []
+    implemented_by:
+    - DE-002
     verified_by: []
     coverage_evidence: []
     coverage_entries: []
@@ -74,7 +78,8 @@ requirements:
     status: pending
     tags: []
     introduced: null
-    implemented_by: []
+    implemented_by:
+    - DE-002
     verified_by: []
     coverage_evidence: []
     coverage_entries: []
@@ -90,7 +95,8 @@ requirements:
     status: pending
     tags: []
     introduced: null
-    implemented_by: []
+    implemented_by:
+    - DE-002
     verified_by: []
     coverage_evidence: []
     coverage_entries: []
@@ -106,7 +112,8 @@ requirements:
     status: pending
     tags: []
     introduced: null
-    implemented_by: []
+    implemented_by:
+    - DE-002
     verified_by: []
     coverage_evidence: []
     coverage_entries: []
@@ -138,7 +145,8 @@ requirements:
     status: pending
     tags: []
     introduced: null
-    implemented_by: []
+    implemented_by:
+    - DE-002
     verified_by: []
     coverage_evidence: []
     coverage_entries: []
@@ -170,7 +178,8 @@ requirements:
     status: pending
     tags: []
     introduced: null
-    implemented_by: []
+    implemented_by:
+    - DE-002
     verified_by: []
     coverage_evidence: []
     coverage_entries: []
@@ -186,7 +195,8 @@ requirements:
     status: pending
     tags: []
     introduced: null
-    implemented_by: []
+    implemented_by:
+    - DE-002
     verified_by: []
     coverage_evidence: []
     coverage_entries: []
