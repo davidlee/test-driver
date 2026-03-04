@@ -25,3 +25,4 @@ Wrong turns observed during agent sessions, with corrections.
 - **`find` and `schema` have subcommands, not positional args.** Use `--help` to check syntax before guessing.
 - **`sync` registers requirements automatically.** It parses `FR-NNN` / `NF-NNN` patterns from spec Markdown and populates the registry. No manual step needed beyond writing the spec correctly.
 - **Don't use `spec-driver` domain for project memories.** Memories under `mem.*.spec-driver.*` are managed by the spec-driver installer and get removed on reinstall. Use `mem.*.project.*` for project-specific memories.
+- **`create phase` appends a duplicate phase entry to the plan YAML.** Running `spec-driver create phase "..." --plan IP-XXX` appends a stray `- id: IP-XXX.PHASE-XX` line at the end of the `phases:` list in the plan file. You must manually remove this duplicate after each `create phase` call.
