@@ -269,3 +269,149 @@ deltas:
         - id: 3.5
           summary: Lint and verify
         risks: []
+  DE-003:
+    kind: delta
+    status: completed
+    name: Delta - Editor mode and timestamp config
+    slug: editor_mode_and_timestamp_config
+    updated: '2026-03-04'
+    path: change/deltas/DE-003-editor_mode_and_timestamp_config/DE-003.md
+    applies_to:
+      specs:
+      - PROD-001
+      requirements:
+      - PROD-001.FR-008
+      - PROD-001.FR-010
+    relations:
+    - type: depends_on
+      target: DE-002
+      attributes: {}
+    plan:
+      id: IP-003
+      overview:
+        schema: supekku.plan.overview
+        version: 1
+        plan: IP-003
+        delta: DE-003
+        specs:
+          primary:
+          - PROD-001
+          collaborators: []
+        requirements:
+          targets:
+          - PROD-001.FR-008
+          - PROD-001.FR-010
+          dependencies:
+          - DE-002
+        phases:
+        - id: IP-003.PHASE-01
+          name: Phase 1 - Editor package
+          objective: Editor detection, launch, save logic, content validation
+          entrance_criteria:
+          - DR-003 reviewed
+          exit_criteria:
+          - "detectEditor returns first available from config \u2192 $EDITOR \u2192\
+            \ defaults"
+          - Edit returns content on exit 0, empty on non-zero/abort
+          - Content validation rejects non-UTF-8, oversized, binary
+          - Table-driven tests with injected CommandChecker
+          - just check exits 0
+        - id: IP-003.PHASE-02
+          name: Phase 2 - Wiring and timestamp config
+          objective: Wire editor into cmd/im, implement editor_timestamp start/end
+          entrance_criteria:
+          - Phase 1 complete (editor package available)
+          exit_criteria:
+          - im (no args, TTY) opens detected editor
+          - Saved content appends to daily file under correct timestamp
+          - Empty save exits cleanly, no file mutation
+          - editor_timestamp=start uses pre-editor time (default)
+          - editor_timestamp=end uses post-editor time
+          - just check exits 0
+        - id: IP-003.PHASE-03
+          name: Phase 3 - Manual editor verification
+          objective: "VH-001\u2013VH-005: verify each editor in FR-008 list"
+          entrance_criteria: &id007
+          - Phase 2 complete (editor mode wired)
+          exit_criteria: &id008
+          - VH-001 neovim verified
+          - VH-002 emacs verified
+          - VH-003 helix verified
+          - VH-004 zed verified
+          - VH-005 vscode verified
+      phases:
+      - schema: supekku.phase.overview
+        version: 1
+        phase: IP-003.PHASE-01
+        plan: IP-003
+        delta: DE-003
+        objective: Editor detection, launch, save logic, content validation
+        entrance_criteria:
+        - DR-003 reviewed
+        exit_criteria:
+        - "detectEditor returns first available from config \u2192 $EDITOR \u2192\
+          \ defaults"
+        - Edit returns content on exit 0, empty on non-zero/abort
+        - Content validation rejects non-UTF-8, oversized, binary
+        - Table-driven tests with injected CommandChecker
+        - just check exits 0
+        verification:
+          tests:
+          - "internal/editor \u2014 table-driven unit tests"
+          evidence: []
+        tasks:
+        - id: 1.1
+          summary: Write tests for editor detection
+        - id: 1.2
+          summary: Implement detectEditor
+        - id: 1.3
+          summary: Write tests for launchEditor and shouldSave
+        - id: 1.4
+          summary: Implement launchEditor and shouldSave
+        - id: 1.5
+          summary: Write tests for content validation
+        - id: 1.6
+          summary: Implement validateContent and containsBinary
+        - id: 1.7
+          summary: Implement Edit (top-level orchestrator)
+        - id: 1.8
+          summary: Lint and verify
+        risks:
+        - go-editor lib API may differ from sketched usage
+      - schema: supekku.phase.overview
+        version: 1
+        phase: IP-003.PHASE-02
+        plan: IP-003
+        delta: DE-003
+        objective: "Wire editor.Edit into cmd/im/main.go ModeEditor case. Implement\
+          \ editor_timestamp start/end config per DR-003 \xA7DEC-003."
+        entrance_criteria:
+        - Phase 1 complete (editor package available)
+        exit_criteria:
+        - im (no args, TTY) opens detected editor
+        - Saved content appends to daily file under correct timestamp
+        - Empty save exits cleanly, no file mutation
+        - editor_timestamp=start uses pre-editor time (default)
+        - editor_timestamp=end uses post-editor time
+        - just check exits 0
+        verification:
+          tests:
+          - cmd/im integration test with mock editor script
+          evidence: []
+        tasks:
+        - id: 2.1
+          summary: Write integration test with mock editor (TDD)
+        - id: 2.2
+          summary: Wire editor.Edit into runWrite ModeEditor case
+        - id: 2.3
+          summary: Implement editor_timestamp start/end selection
+        - id: 2.4
+          summary: Lint and verify
+        risks:
+        - Mock editor script portability across CI environments
+      - id: IP-003.PHASE-03
+        name: Phase 3 - Manual editor verification
+        objective: "VH-001\u2013VH-005: verify each editor in FR-008 list"
+        entrance_criteria: *id007
+        exit_criteria: *id008
+        phase: IP-003.PHASE-03

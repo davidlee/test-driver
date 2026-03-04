@@ -43,3 +43,19 @@
 **Verification**: `just check` exits 0 (lint: 0 issues, 27 tests pass).
 
 **Follow-up**: Phase 3 (manual editor verification VH-001–VH-005).
+
+## Manual Verification Results (user-reported)
+
+| VH | Editor | Result | Notes |
+| --- | --- | --- | --- |
+| VH-001 | neovim | **pass** | |
+| VH-002 | emacs | **pass** | |
+| VH-003 | helix | **pass** | |
+| VH-004 | zed | **deferred** | `--wait` unreliable; zed returns immediately |
+| VH-005 | vscode | **pass** | |
+| — | nano | **pass** | Bonus — not in FR-008 list but works |
+
+**User feedback captured**:
+- `-t`/`--task` flag works correctly through editor path (confirmed)
+- `-e` flag to edit existing daily log file → IMPR-001 (backlog)
+- Zed `--wait` issue deferred — not a blocker for DE-003 closure

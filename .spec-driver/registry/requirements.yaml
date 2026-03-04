@@ -148,7 +148,7 @@ requirements:
     path: specify/product/PROD-001/PROD-001.md
   PROD-001.FR-008:
     label: FR-008
-    title: When invoked with no arguments and stdin is a TTY, system MUST
+    title: Editor mode MUST work correctly with zed (requires `--wait` flag
     specs:
     - PROD-001
     primary_spec: PROD-001
@@ -160,8 +160,12 @@ requirements:
     implemented_by:
     - DE-003
     verified_by: []
-    coverage_evidence: []
-    coverage_entries: []
+    coverage_evidence:
+    - VH-004
+    coverage_entries:
+    - artefact: VH-004
+      status: planned
+      kind: VH
     path: specify/product/PROD-001/PROD-001.md
   PROD-001.FR-009:
     label: FR-009
@@ -192,14 +196,18 @@ requirements:
     primary_spec: PROD-001
     kind: functional
     category: null
-    status: pending
+    status: active
     tags: []
     introduced: null
     implemented_by:
     - DE-003
     verified_by: []
-    coverage_evidence: []
-    coverage_entries: []
+    coverage_evidence:
+    - VT-014
+    coverage_entries:
+    - artefact: VT-014
+      status: verified
+      kind: VT
     path: specify/product/PROD-001/PROD-001.md
   PROD-001.FR-011:
     label: FR-011
@@ -322,6 +330,31 @@ requirements:
     verified_by: []
     coverage_evidence: []
     coverage_entries: []
+    path: specify/product/PROD-001/PROD-001.md
+  PROD-001.FR-018:
+    label: FR-018
+    title: When invoked with no arguments and stdin is a TTY, system MUST
+    specs:
+    - PROD-001
+    primary_spec: PROD-001
+    kind: functional
+    category: null
+    status: active
+    tags: []
+    introduced: null
+    implemented_by:
+    - DE-003
+    verified_by: []
+    coverage_evidence:
+    - VH-001
+    - VT-013
+    coverage_entries:
+    - artefact: VT-013
+      status: verified
+      kind: VT
+    - artefact: VH-001
+      status: verified
+      kind: VH
     path: specify/product/PROD-001/PROD-001.md
   PROD-001.NF-001:
     label: NF-001
