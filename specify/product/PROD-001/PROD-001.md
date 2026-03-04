@@ -36,6 +36,7 @@ requirements:
     - PROD-001.FR-009
     - PROD-001.FR-010
     - PROD-001.FR-011
+    - PROD-001.FR-012
     - PROD-001.NF-001
     - PROD-001.NF-002
     - PROD-001.NF-003
@@ -105,6 +106,18 @@ capabilities:
     success_criteria:
       - First run with no config file succeeds
       - Config file overrides are respected
+
+  - id: read-mode
+    name: Read Mode
+    responsibilities:
+      - Display today's log file in a pager or viewer
+    requirements: [FR-012]
+    summary: >-
+      The -r flag displays today's log using the first available viewer
+      ($PAGER, glow, or cat), letting the user review the day's entries
+      without leaving the terminal.
+    success_criteria:
+      - `im -r` displays today's log file contents
 ```
 
 ```yaml supekku:verification.coverage@v1
@@ -202,6 +215,9 @@ entries: []
   - `"adaptive"` (default) — the two-branch rule from FR-004 (coarse within
     10m, exact after gaps).
   - `"round10"` — always round down to the nearest 10-minute boundary.
+
+- **FR-012**: When `-r` flag is provided, system MUST display today's log file
+  using the first available viewer: `$PAGER`, `glow`, or `cat`.
 
 ### Non-Functional Requirements
 

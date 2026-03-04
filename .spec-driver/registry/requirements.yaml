@@ -175,6 +175,22 @@ requirements:
     coverage_evidence: []
     coverage_entries: []
     path: specify/product/PROD-001/PROD-001.md
+  PROD-001.FR-012:
+    label: FR-012
+    title: When `-r` flag is provided, system MUST display today's log file
+    specs:
+    - PROD-001
+    primary_spec: PROD-001
+    kind: functional
+    category: null
+    status: pending
+    tags: []
+    introduced: null
+    implemented_by: []
+    verified_by: []
+    coverage_evidence: []
+    coverage_entries: []
+    path: specify/product/PROD-001/PROD-001.md
   PROD-001.NF-001:
     label: NF-001
     title: System MUST work with zero configuration on first run. Optional
