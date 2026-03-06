@@ -8,6 +8,13 @@ ADRs are enabled. Before making architectural choices, check accepted decisions:
 spec-driver list adrs -s accepted
 ```
 
-Read any relevant ADR before proceeding. If your work conflicts with an accepted ADR, stop and raise the conflict for clarification.
+Read any relevant ADR before proceeding.
 
-See `specify/decisions/` for all ADRs.
+## Requirement for Proactive Compliance
+
+Remember these, and read any potentially relevant artefacts before proceeding
+now OR in the future.
+
+If your work conflicts with any of them, stop and raise the conflict for
+clarification.
+
