@@ -11,8 +11,8 @@ tags:
 - spec-driver
 - philosophy
 summary: Spec-driver treats specifications as the evergreen source of truth for a
-  system, but canonical spec finalization happens after implementation and audit
-  reconciliation. Change is explicit, auditable, and agent-native. Start here.
+  system, but canonical spec finalization happens after implementation and audit reconciliation.
+  Change is explicit, auditable, and agent-native. Start here.
 priority:
   severity: high
   weight: 10
@@ -71,6 +71,7 @@ agents as much as by humans.
 
 ## See Also
 
+- [[mem.signpost.spec-driver.overview]] — quick overview
 - [[mem.concept.spec-driver.posture]] — how projects adopt the philosophy gradually
 - [[mem.pattern.spec-driver.core-loop]] — the operational workflow
 - [[mem.signpost.spec-driver.ceremony]] — ceremony modes (pioneer/settler/town-planner)

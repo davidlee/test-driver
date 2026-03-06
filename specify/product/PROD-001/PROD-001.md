@@ -46,6 +46,7 @@ requirements:
     - PROD-001.FR-016
     - PROD-001.FR-017
     - PROD-001.FR-018
+    - PROD-001.FR-019
   collaborators: []
 interactions: []
 ```
@@ -119,7 +120,7 @@ capabilities:
       - Render today's log to stdout (glow or cat)
       - Display today's log in a pager
       - Print today's file path for shell composition
-    requirements: [FR-012, FR-013, FR-017]
+    requirements: [FR-012, FR-013, FR-017, FR-019]
     summary: >-
       The -r flag renders today's log to stdout via glow (if available)
       or cat — quick, no pager. The -p flag opens the log in a pager
@@ -352,6 +353,10 @@ entries:
 
 - **FR-013**: When `-f` flag is provided, system MUST print the absolute path
   to today's log file to stdout and exit. No entry is written.
+
+- **FR-019**: When `-e` flag is provided, system MUST open today's log file in
+  the detected editor. If no file exists for today, system MUST exit with a
+  message. On save, the file is updated in place (no append logic).
 
 - **FR-014**: Daily file format MUST be defined by an editable Markdown template
   using Go `text/template` syntax. Default template location:
