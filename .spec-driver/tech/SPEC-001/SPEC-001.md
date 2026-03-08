@@ -214,11 +214,21 @@ entries:
     requirement: SPEC-001.NF-001
     status: verified
     notes: internal/config/config_test.go — defaults, file loading, validation
-  - artefact: VA-001
-    kind: VA
+  - artefact: VT-011
+    kind: VT
     requirement: SPEC-001.NF-002
-    status: planned
-    notes: Informal — code path is trivial, formal benchmark deferred
+    status: verified
+    notes: internal/logfile/appender_bench_test.go — BenchmarkAppend_Inline ~21μs/op (threshold 100ms)
+  - artefact: VT-012
+    kind: VT
+    requirement: SPEC-001.NF-003
+    status: verified
+    notes: All appender tests use injected clock; zero time.Now calls in logfile package (grep-verified)
+  - artefact: VT-013
+    kind: VT
+    requirement: SPEC-001.NF-004
+    status: verified
+    notes: internal/logfile/appender_test.go — TestAppender_CreatesDirectory; appender.go:41 os.MkdirAll 0o750
 ```
 
 ## 1. Intent & Summary
