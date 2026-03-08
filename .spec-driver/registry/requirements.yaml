@@ -13,9 +13,13 @@ requirements:
     implemented_by:
     - DE-002
     verified_by: []
-    coverage_evidence: []
-    coverage_entries: []
-    path: specify/product/PROD-001/PROD-001.md
+    coverage_evidence:
+    - VT-001
+    coverage_entries:
+    - artefact: VT-001
+      status: verified
+      kind: VT
+    path: .spec-driver/product/PROD-001/PROD-001.md
   PROD-001.FR-002:
     label: FR-002
     title: System MUST append entries to an existing daily file without
@@ -30,9 +34,13 @@ requirements:
     implemented_by:
     - DE-002
     verified_by: []
-    coverage_evidence: []
-    coverage_entries: []
-    path: specify/product/PROD-001/PROD-001.md
+    coverage_evidence:
+    - VT-002
+    coverage_entries:
+    - artefact: VT-002
+      status: verified
+      kind: VT
+    path: .spec-driver/product/PROD-001/PROD-001.md
   PROD-001.FR-003:
     label: FR-003
     title: The log directory MUST default to `~/log` and be overridable
@@ -47,9 +55,13 @@ requirements:
     implemented_by:
     - DE-002
     verified_by: []
-    coverage_evidence: []
-    coverage_entries: []
-    path: specify/product/PROD-001/PROD-001.md
+    coverage_evidence:
+    - VT-003
+    coverage_entries:
+    - artefact: VT-003
+      status: verified
+      kind: VT
+    path: .spec-driver/product/PROD-001/PROD-001.md
   PROD-001.FR-004:
     label: FR-004
     title: 'Timestamp subheading (level 2) emission rules:'
@@ -64,9 +76,13 @@ requirements:
     implemented_by:
     - DE-002
     verified_by: []
-    coverage_evidence: []
-    coverage_entries: []
-    path: specify/product/PROD-001/PROD-001.md
+    coverage_evidence:
+    - VT-004
+    coverage_entries:
+    - artefact: VT-004
+      status: verified
+      kind: VT
+    path: .spec-driver/product/PROD-001/PROD-001.md
   PROD-001.FR-005:
     label: FR-005
     title: System MUST accept positional arguments as the entry body
@@ -81,9 +97,13 @@ requirements:
     implemented_by:
     - DE-002
     verified_by: []
-    coverage_evidence: []
-    coverage_entries: []
-    path: specify/product/PROD-001/PROD-001.md
+    coverage_evidence:
+    - VT-005
+    coverage_entries:
+    - artefact: VT-005
+      status: verified
+      kind: VT
+    path: .spec-driver/product/PROD-001/PROD-001.md
   PROD-001.FR-006:
     label: FR-006
     title: System MUST accept entry text after a `--` separator
@@ -98,9 +118,13 @@ requirements:
     implemented_by:
     - DE-002
     verified_by: []
-    coverage_evidence: []
-    coverage_entries: []
-    path: specify/product/PROD-001/PROD-001.md
+    coverage_evidence:
+    - VT-006
+    coverage_entries:
+    - artefact: VT-006
+      status: verified
+      kind: VT
+    path: .spec-driver/product/PROD-001/PROD-001.md
   PROD-001.FR-007:
     label: FR-007
     title: System MUST read entry body from stdin when input is piped.
@@ -115,9 +139,13 @@ requirements:
     implemented_by:
     - DE-002
     verified_by: []
-    coverage_evidence: []
-    coverage_entries: []
-    path: specify/product/PROD-001/PROD-001.md
+    coverage_evidence:
+    - VT-007
+    coverage_entries:
+    - artefact: VT-007
+      status: verified
+      kind: VT
+    path: .spec-driver/product/PROD-001/PROD-001.md
   PROD-001.FR-008:
     label: FR-008
     title: Editor mode MUST work correctly with zed (requires `--wait` flag
@@ -132,9 +160,13 @@ requirements:
     implemented_by:
     - DE-003
     verified_by: []
-    coverage_evidence: []
-    coverage_entries: []
-    path: specify/product/PROD-001/PROD-001.md
+    coverage_evidence:
+    - VH-004
+    coverage_entries:
+    - artefact: VH-004
+      status: planned
+      kind: VH
+    path: .spec-driver/product/PROD-001/PROD-001.md
   PROD-001.FR-009:
     label: FR-009
     title: When `-t` flag is provided, each line of the entry body MUST be
@@ -149,9 +181,13 @@ requirements:
     implemented_by:
     - DE-002
     verified_by: []
-    coverage_evidence: []
-    coverage_entries: []
-    path: specify/product/PROD-001/PROD-001.md
+    coverage_evidence:
+    - VT-008
+    coverage_entries:
+    - artefact: VT-008
+      status: verified
+      kind: VT
+    path: .spec-driver/product/PROD-001/PROD-001.md
   PROD-001.FR-010:
     label: FR-010
     title: In editor mode, the timestamp applied to the entry MUST be
@@ -166,9 +202,13 @@ requirements:
     implemented_by:
     - DE-003
     verified_by: []
-    coverage_evidence: []
-    coverage_entries: []
-    path: specify/product/PROD-001/PROD-001.md
+    coverage_evidence:
+    - VT-014
+    coverage_entries:
+    - artefact: VT-014
+      status: verified
+      kind: VT
+    path: .spec-driver/product/PROD-001/PROD-001.md
   PROD-001.FR-011:
     label: FR-011
     title: Timestamp rounding strategy MUST be configurable via `im.toml`
@@ -183,9 +223,13 @@ requirements:
     implemented_by:
     - DE-002
     verified_by: []
-    coverage_evidence: []
-    coverage_entries: []
-    path: specify/product/PROD-001/PROD-001.md
+    coverage_evidence:
+    - VT-009
+    coverage_entries:
+    - artefact: VT-009
+      status: verified
+      kind: VT
+    path: .spec-driver/product/PROD-001/PROD-001.md
   PROD-001.FR-012:
     label: FR-012
     title: When `-r` flag is provided, system MUST render today's log file
@@ -200,9 +244,13 @@ requirements:
     implemented_by:
     - DE-002
     verified_by: []
-    coverage_evidence: []
-    coverage_entries: []
-    path: specify/product/PROD-001/PROD-001.md
+    coverage_evidence:
+    - VT-010
+    coverage_entries:
+    - artefact: VT-010
+      status: verified
+      kind: VT
+    path: .spec-driver/product/PROD-001/PROD-001.md
   PROD-001.FR-013:
     label: FR-013
     title: When `-f` flag is provided, system MUST print the absolute path
@@ -214,11 +262,12 @@ requirements:
     status: pending
     tags: []
     introduced: null
-    implemented_by: []
+    implemented_by:
+    - DE-004
     verified_by: []
     coverage_evidence: []
     coverage_entries: []
-    path: specify/product/PROD-001/PROD-001.md
+    path: .spec-driver/product/PROD-001/PROD-001.md
   PROD-001.FR-014:
     label: FR-014
     title: Daily file format MUST be defined by an editable Markdown template
@@ -234,7 +283,7 @@ requirements:
     verified_by: []
     coverage_evidence: []
     coverage_entries: []
-    path: specify/product/PROD-001/PROD-001.md
+    path: .spec-driver/product/PROD-001/PROD-001.md
   PROD-001.FR-015:
     label: FR-015
     title: 'The template engine MUST support the following dynamic variables:'
@@ -250,7 +299,7 @@ requirements:
     verified_by: []
     coverage_evidence: []
     coverage_entries: []
-    path: specify/product/PROD-001/PROD-001.md
+    path: .spec-driver/product/PROD-001/PROD-001.md
   PROD-001.FR-016:
     label: FR-016
     title: Timestamp subheadings MUST support 12-hour format with AM/PM,
@@ -266,7 +315,7 @@ requirements:
     verified_by: []
     coverage_evidence: []
     coverage_entries: []
-    path: specify/product/PROD-001/PROD-001.md
+    path: .spec-driver/product/PROD-001/PROD-001.md
   PROD-001.FR-017:
     label: FR-017
     title: When `-p` flag is provided, system MUST display today's log file
@@ -278,11 +327,12 @@ requirements:
     status: pending
     tags: []
     introduced: null
-    implemented_by: []
+    implemented_by:
+    - DE-004
     verified_by: []
     coverage_evidence: []
     coverage_entries: []
-    path: specify/product/PROD-001/PROD-001.md
+    path: .spec-driver/product/PROD-001/PROD-001.md
   PROD-001.FR-018:
     label: FR-018
     title: When invoked with no arguments and stdin is a TTY, system MUST
@@ -297,9 +347,17 @@ requirements:
     implemented_by:
     - DE-003
     verified_by: []
-    coverage_evidence: []
-    coverage_entries: []
-    path: specify/product/PROD-001/PROD-001.md
+    coverage_evidence:
+    - VH-001
+    - VT-013
+    coverage_entries:
+    - artefact: VT-013
+      status: verified
+      kind: VT
+    - artefact: VH-001
+      status: verified
+      kind: VH
+    path: .spec-driver/product/PROD-001/PROD-001.md
   PROD-001.FR-019:
     label: FR-019
     title: When `-e` flag is provided, system MUST open today's log file in
@@ -311,11 +369,12 @@ requirements:
     status: pending
     tags: []
     introduced: null
-    implemented_by: []
+    implemented_by:
+    - DE-004
     verified_by: []
     coverage_evidence: []
     coverage_entries: []
-    path: specify/product/PROD-001/PROD-001.md
+    path: .spec-driver/product/PROD-001/PROD-001.md
   PROD-001.NF-001:
     label: NF-001
     title: System MUST work with zero configuration on first run. Optional
@@ -330,9 +389,13 @@ requirements:
     implemented_by:
     - DE-001
     verified_by: []
-    coverage_evidence: []
-    coverage_entries: []
-    path: specify/product/PROD-001/PROD-001.md
+    coverage_evidence:
+    - VT-011
+    coverage_entries:
+    - artefact: VT-011
+      status: verified
+      kind: VT
+    path: .spec-driver/product/PROD-001/PROD-001.md
   PROD-001.NF-002:
     label: NF-002
     title: Time from invocation to entry written MUST be < 100 ms for
@@ -348,7 +411,7 @@ requirements:
     verified_by: []
     coverage_evidence: []
     coverage_entries: []
-    path: specify/product/PROD-001/PROD-001.md
+    path: .spec-driver/product/PROD-001/PROD-001.md
   PROD-001.NF-003:
     label: NF-003
     title: Binary MUST be a single statically-linked Go executable named
@@ -363,9 +426,13 @@ requirements:
     implemented_by:
     - DE-001
     verified_by: []
-    coverage_evidence: []
-    coverage_entries: []
-    path: specify/product/PROD-001/PROD-001.md
+    coverage_evidence:
+    - VT-012
+    coverage_entries:
+    - artefact: VT-012
+      status: verified
+      kind: VT
+    path: .spec-driver/product/PROD-001/PROD-001.md
   SPEC-001.FR-001:
     label: FR-001
     title: '`entry.Format` MUST return trimmed body with trailing newline'
@@ -373,15 +440,19 @@ requirements:
     - SPEC-001
     primary_spec: SPEC-001
     kind: functional
-    category: null
+    category: assembly
     status: active
     tags: []
     introduced: null
     implemented_by: []
     verified_by: []
-    coverage_evidence: []
-    coverage_entries: []
-    path: specify/tech/SPEC-001/SPEC-001.md
+    coverage_evidence:
+    - VT-001
+    coverage_entries:
+    - artefact: VT-001
+      status: verified
+      kind: VT
+    path: .spec-driver/tech/SPEC-001/SPEC-001.md
   SPEC-001.FR-002:
     label: FR-002
     title: '`logfile.Appender.Append` MUST create a new daily file with a'
@@ -389,15 +460,19 @@ requirements:
     - SPEC-001
     primary_spec: SPEC-001
     kind: functional
-    category: null
+    category: assembly
     status: active
     tags: []
     introduced: null
     implemented_by: []
     verified_by: []
-    coverage_evidence: []
-    coverage_entries: []
-    path: specify/tech/SPEC-001/SPEC-001.md
+    coverage_evidence:
+    - VT-002
+    coverage_entries:
+    - artefact: VT-002
+      status: verified
+      kind: VT
+    path: .spec-driver/tech/SPEC-001/SPEC-001.md
   SPEC-001.FR-003:
     label: FR-003
     title: '`logfile.Appender.Append` MUST append to an existing daily file'
@@ -405,15 +480,19 @@ requirements:
     - SPEC-001
     primary_spec: SPEC-001
     kind: functional
-    category: null
+    category: assembly
     status: active
     tags: []
     introduced: null
     implemented_by: []
     verified_by: []
-    coverage_evidence: []
-    coverage_entries: []
-    path: specify/tech/SPEC-001/SPEC-001.md
+    coverage_evidence:
+    - VT-003
+    coverage_entries:
+    - artefact: VT-003
+      status: verified
+      kind: VT
+    path: .spec-driver/tech/SPEC-001/SPEC-001.md
   SPEC-001.FR-004:
     label: FR-004
     title: '`logfile.ShouldEmitHeading` with adaptive strategy MUST:'
@@ -421,15 +500,19 @@ requirements:
     - SPEC-001
     primary_spec: SPEC-001
     kind: functional
-    category: null
+    category: assembly
     status: active
     tags: []
     introduced: null
     implemented_by: []
     verified_by: []
-    coverage_evidence: []
-    coverage_entries: []
-    path: specify/tech/SPEC-001/SPEC-001.md
+    coverage_evidence:
+    - VT-004
+    coverage_entries:
+    - artefact: VT-004
+      status: verified
+      kind: VT
+    path: .spec-driver/tech/SPEC-001/SPEC-001.md
   SPEC-001.FR-005:
     label: FR-005
     title: '`logfile.ShouldEmitHeading` with round10 strategy MUST always'
@@ -437,15 +520,19 @@ requirements:
     - SPEC-001
     primary_spec: SPEC-001
     kind: functional
-    category: null
+    category: assembly
     status: active
     tags: []
     introduced: null
     implemented_by: []
     verified_by: []
-    coverage_evidence: []
-    coverage_entries: []
-    path: specify/tech/SPEC-001/SPEC-001.md
+    coverage_evidence:
+    - VT-005
+    coverage_entries:
+    - artefact: VT-005
+      status: verified
+      kind: VT
+    path: .spec-driver/tech/SPEC-001/SPEC-001.md
   SPEC-001.FR-006:
     label: FR-006
     title: '`reader.View` MUST dispatch to the first available viewer in'
@@ -453,15 +540,19 @@ requirements:
     - SPEC-001
     primary_spec: SPEC-001
     kind: functional
-    category: null
+    category: assembly
     status: active
     tags: []
     introduced: null
     implemented_by: []
     verified_by: []
-    coverage_evidence: []
-    coverage_entries: []
-    path: specify/tech/SPEC-001/SPEC-001.md
+    coverage_evidence:
+    - VT-006
+    coverage_entries:
+    - artefact: VT-006
+      status: verified
+      kind: VT
+    path: .spec-driver/tech/SPEC-001/SPEC-001.md
   SPEC-001.FR-007:
     label: FR-007
     title: '`cmd/im` MUST read piped stdin via `io.ReadAll` when input mode'
@@ -469,15 +560,19 @@ requirements:
     - SPEC-001
     primary_spec: SPEC-001
     kind: functional
-    category: null
+    category: assembly
     status: active
     tags: []
     introduced: null
     implemented_by: []
     verified_by: []
-    coverage_evidence: []
-    coverage_entries: []
-    path: specify/tech/SPEC-001/SPEC-001.md
+    coverage_evidence:
+    - VT-007
+    coverage_entries:
+    - artefact: VT-007
+      status: verified
+      kind: VT
+    path: .spec-driver/tech/SPEC-001/SPEC-001.md
   SPEC-001.FR-008:
     label: FR-008
     title: '`logfile.ParseLastTimestamp` MUST extract the time from the last'
@@ -485,15 +580,19 @@ requirements:
     - SPEC-001
     primary_spec: SPEC-001
     kind: functional
-    category: null
+    category: assembly
     status: active
     tags: []
     introduced: null
     implemented_by: []
     verified_by: []
-    coverage_evidence: []
-    coverage_entries: []
-    path: specify/tech/SPEC-001/SPEC-001.md
+    coverage_evidence:
+    - VT-008
+    coverage_entries:
+    - artefact: VT-008
+      status: verified
+      kind: VT
+    path: .spec-driver/tech/SPEC-001/SPEC-001.md
   SPEC-001.FR-009:
     label: FR-009
     title: '`cmd/im` MUST silently exit 0 with no file mutation when the'
@@ -501,15 +600,19 @@ requirements:
     - SPEC-001
     primary_spec: SPEC-001
     kind: functional
-    category: null
+    category: assembly
     status: active
     tags: []
     introduced: null
     implemented_by: []
     verified_by: []
-    coverage_evidence: []
-    coverage_entries: []
-    path: specify/tech/SPEC-001/SPEC-001.md
+    coverage_evidence:
+    - VT-009
+    coverage_entries:
+    - artefact: VT-009
+      status: verified
+      kind: VT
+    path: .spec-driver/tech/SPEC-001/SPEC-001.md
   SPEC-001.NF-001:
     label: NF-001
     title: '`config.Load` MUST return sensible defaults when config file is'
@@ -517,15 +620,19 @@ requirements:
     - SPEC-001
     primary_spec: SPEC-001
     kind: non-functional
-    category: null
+    category: assembly
     status: active
     tags: []
     introduced: null
     implemented_by: []
     verified_by: []
-    coverage_evidence: []
-    coverage_entries: []
-    path: specify/tech/SPEC-001/SPEC-001.md
+    coverage_evidence:
+    - VT-010
+    coverage_entries:
+    - artefact: VT-010
+      status: verified
+      kind: VT
+    path: .spec-driver/tech/SPEC-001/SPEC-001.md
   SPEC-001.NF-002:
     label: NF-002
     title: Inline write path (no editor, no pager) SHOULD complete in
@@ -533,15 +640,19 @@ requirements:
     - SPEC-001
     primary_spec: SPEC-001
     kind: non-functional
-    category: null
+    category: assembly
     status: pending
     tags: []
     introduced: null
     implemented_by: []
     verified_by: []
-    coverage_evidence: []
-    coverage_entries: []
-    path: specify/tech/SPEC-001/SPEC-001.md
+    coverage_evidence:
+    - VA-001
+    coverage_entries:
+    - artefact: VA-001
+      status: planned
+      kind: VA
+    path: .spec-driver/tech/SPEC-001/SPEC-001.md
   SPEC-001.NF-003:
     label: NF-003
     title: '`logfile.Appender` MUST use an injected `func() time.Time`'
@@ -549,7 +660,7 @@ requirements:
     - SPEC-001
     primary_spec: SPEC-001
     kind: non-functional
-    category: null
+    category: assembly
     status: pending
     tags: []
     introduced: null
@@ -557,7 +668,7 @@ requirements:
     verified_by: []
     coverage_evidence: []
     coverage_entries: []
-    path: specify/tech/SPEC-001/SPEC-001.md
+    path: .spec-driver/tech/SPEC-001/SPEC-001.md
   SPEC-001.NF-004:
     label: NF-004
     title: '`logfile.Appender` MUST create the log directory'
@@ -565,7 +676,7 @@ requirements:
     - SPEC-001
     primary_spec: SPEC-001
     kind: non-functional
-    category: null
+    category: assembly
     status: pending
     tags: []
     introduced: null
@@ -573,4 +684,4 @@ requirements:
     verified_by: []
     coverage_evidence: []
     coverage_entries: []
-    path: specify/tech/SPEC-001/SPEC-001.md
+    path: .spec-driver/tech/SPEC-001/SPEC-001.md
