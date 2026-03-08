@@ -120,16 +120,19 @@ capabilities:
       - Render today's log to stdout (glow or cat)
       - Display today's log in a pager
       - Print today's file path for shell composition
+      - Edit today's log file in-place via detected editor
     requirements: [FR-012, FR-013, FR-017, FR-019]
     summary: >-
       The -r flag renders today's log to stdout via glow (if available)
       or cat — quick, no pager. The -p flag opens the log in a pager
       (glow --pager, rich --markdown --pager, $PAGER, or cat). The -f
-      flag prints the absolute file path for shell composition.
+      flag prints the absolute file path for shell composition. The -e
+      flag opens today's log in the detected editor for in-place editing.
     success_criteria:
       - `im -r` renders to stdout without a pager
       - `im -p` opens in a pager
       - `im -f` prints the absolute path to today's log file
+      - `im -e` opens today's log in the editor; message when no file
 
   - id: file-template
     name: File Template Engine
@@ -217,7 +220,7 @@ entries:
     kind: VT
     requirement: PROD-001.FR-012
     status: verified
-    notes: internal/reader/reader_test.go — viewer dispatch chain, ErrNoFile handling
+    notes: internal/reader/reader_test.go — ResolveRenderer stdout dispatch (no --pager), Render ErrNoFile; -r calls Render
   - artefact: VT-011
     kind: VT
     requirement: PROD-001.NF-001
@@ -248,6 +251,21 @@ entries:
     requirement: PROD-001.FR-010
     status: verified
     notes: cmd/im/main_test.go — TestRunEditorMode_TimestampEnd verifies end-time selection; start-time default covered by TestRunEditorMode_SavesContent
+  - artefact: VT-015
+    kind: VT
+    requirement: PROD-001.FR-013
+    status: verified
+    notes: cmd/im/main_test.go — TestRunFile_PrintsPath (correct path), TestRunFile_PrintsPathRegardlessOfFileExistence (no file needed)
+  - artefact: VT-016
+    kind: VT
+    requirement: PROD-001.FR-017
+    status: verified
+    notes: internal/reader/reader_test.go — ResolveViewer pager dispatch chain; View ErrNoFile; -p calls View
+  - artefact: VT-017
+    kind: VT
+    requirement: PROD-001.FR-019
+    status: verified
+    notes: cmd/im/main_test.go — TestRunEdit_NoFile (message); internal/editor/editor_test.go — TestEditFile_DetectsEditor, TestEditFile_NoEditor
 ```
 
 ## 1. Intent & Summary
@@ -269,6 +287,8 @@ entries:
 
 - **Change History**: Initial specification. RE-003: added FR-013–FR-016
   (file path flag, template engine, dynamic variables, 12h time format).
+  RE-006: added FR-019 (-e edit flag). DE-004: implemented -f, -p, -e flags;
+  fixed -r stdout/pager split.
 
 ## 2. Stakeholders & Journeys
 
@@ -430,8 +450,10 @@ entries:
 - **File append**: If the file exists, read the last `## HH:MM` heading. If
   the current rounded time matches, append the entry below it. Otherwise,
   append a new `## HH:MM` heading followed by the entry.
-- **Read mode** (`-r`): Display today's file using `$PAGER`, `glow`, or `cat`
-  (first available).
+- **Read mode** (`-r`): Render today's file to stdout using `glow` or `cat`
+  (no pager). **Pager mode** (`-p`): open in pager via `glow --pager`,
+  `rich --markdown --pager`, `$PAGER`, or `cat`. **File path** (`-f`): print
+  absolute path. **Edit mode** (`-e`): open in editor for in-place editing.
 - **Empty input**: If the user provides no text (empty editor save, empty
   pipe), do nothing — exit cleanly without appending.
 
