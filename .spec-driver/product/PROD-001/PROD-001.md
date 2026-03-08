@@ -266,6 +266,11 @@ entries:
     requirement: PROD-001.FR-019
     status: verified
     notes: cmd/im/main_test.go — TestRunEdit_NoFile (message); internal/editor/editor_test.go — TestEditFile_DetectsEditor, TestEditFile_NoEditor
+  - artefact: VT-018
+    kind: VT
+    requirement: PROD-001.NF-002
+    status: verified
+    notes: internal/logfile/appender_bench_test.go — BenchmarkAppend_Inline ~21μs/op (threshold 100ms)
 ```
 
 ## 1. Intent & Summary
