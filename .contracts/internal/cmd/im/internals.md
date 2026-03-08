@@ -13,9 +13,13 @@ Package main is the entrypoint for the im CLI.
 - [Variables](<#variables>)
 - [func main\(\)](<#main>)
 - [func run\(\_ context.Context, cmd \*cli.Command, cfg config.Config\) error](<#run>)
+- [func runEdit\(cfg config.Config, logDir string\) error](<#runEdit>)
 - [func runEditorMode\(cfg config.Config, logDir string, task bool, edit editFunc, clock func\(\) time.Time\) error](<#runEditorMode>)
+- [func runFile\(logDir string\) error](<#runFile>)
+- [func runPager\(logDir string\) error](<#runPager>)
 - [func runRead\(logDir string\) error](<#runRead>)
 - [func runWrite\(cmd \*cli.Command, cfg config.Config, logDir string\) error](<#runWrite>)
+- [func todayPath\(logDir string\) string](<#todayPath>)
 - [type editFunc](<#editFunc>)
 
 
@@ -45,6 +49,15 @@ func run(_ context.Context, cmd *cli.Command, cfg config.Config) error
 
 
 
+<a name="runEdit"></a>
+## func runEdit
+
+```go
+func runEdit(cfg config.Config, logDir string) error
+```
+
+
+
 <a name="runEditorMode"></a>
 ## func runEditorMode
 
@@ -53,6 +66,24 @@ func runEditorMode(cfg config.Config, logDir string, task bool, edit editFunc, c
 ```
 
 runEditorMode opens an external editor, captures the entry, and appends it to the daily log file. Timestamp is selected per cfg.EditorTimestamp.
+
+<a name="runFile"></a>
+## func runFile
+
+```go
+func runFile(logDir string) error
+```
+
+
+
+<a name="runPager"></a>
+## func runPager
+
+```go
+func runPager(logDir string) error
+```
+
+
 
 <a name="runRead"></a>
 ## func runRead
@@ -68,6 +99,15 @@ func runRead(logDir string) error
 
 ```go
 func runWrite(cmd *cli.Command, cfg config.Config, logDir string) error
+```
+
+
+
+<a name="todayPath"></a>
+## func todayPath
+
+```go
+func todayPath(logDir string) string
 ```
 
 

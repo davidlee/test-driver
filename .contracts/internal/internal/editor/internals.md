@@ -13,6 +13,7 @@ Package editor provides external editor integration for entry composition.
 - [Variables](<#variables>)
 - [func DefaultCheck\(cmd string\) bool](<#DefaultCheck>)
 - [func Edit\(cfg config.Config, check CommandChecker\) \(string, error\)](<#Edit>)
+- [func EditFile\(path, cfgEditor string, check CommandChecker\) error](<#EditFile>)
 - [func containsBinary\(content string\) bool](<#containsBinary>)
 - [func detectEditor\(cfgEditor string, check CommandChecker\) \(string, error\)](<#detectEditor>)
 - [func launchEditor\(editorCmd string\) \(content string, exitCode int, err error\)](<#launchEditor>)
@@ -48,6 +49,15 @@ func Edit(cfg config.Config, check CommandChecker) (string, error)
 ```
 
 Edit opens an external editor for entry composition. Returns the edited content. Returns \("", nil\) when the user aborts or saves empty content.
+
+<a name="EditFile"></a>
+## func EditFile
+
+```go
+func EditFile(path, cfgEditor string, check CommandChecker) error
+```
+
+EditFile opens an existing file in the detected editor for in\-place editing. Unlike Edit, no temp file is created — the file is edited directly.
 
 <a name="containsBinary"></a>
 ## func containsBinary
