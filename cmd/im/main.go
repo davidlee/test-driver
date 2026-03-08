@@ -42,7 +42,22 @@ func main() {
 			&cli.BoolFlag{
 				Name:    "read",
 				Aliases: []string{"r"},
+				Usage:   "Render today's log to stdout",
+			},
+			&cli.BoolFlag{
+				Name:    "pager",
+				Aliases: []string{"p"},
 				Usage:   "Display today's log in a pager",
+			},
+			&cli.BoolFlag{
+				Name:    "file",
+				Aliases: []string{"f"},
+				Usage:   "Print today's log file path",
+			},
+			&cli.BoolFlag{
+				Name:    "edit",
+				Aliases: []string{"e"},
+				Usage:   "Edit today's log file in $EDITOR",
 			},
 		},
 		Action: func(ctx context.Context, cmd *cli.Command) error {
@@ -61,23 +76,56 @@ func run(_ context.Context, cmd *cli.Command, cfg config.Config) error {
 		return fmt.Errorf("resolving log dir: %w", err)
 	}
 
-	if cmd.Bool("read") {
+	switch {
+	case cmd.Bool("file"):
+		return runFile(logDir)
+	case cmd.Bool("read"):
 		return runRead(logDir)
+	case cmd.Bool("pager"):
+		return runPager(logDir)
+	case cmd.Bool("edit"):
+		return runEdit(cfg, logDir)
+	default:
+		return runWrite(cmd, cfg, logDir)
 	}
+}
 
-	return runWrite(cmd, cfg, logDir)
+func todayPath(logDir string) string {
+	return filepath.Join(logDir, time.Now().Format("2006-01-02")+".md")
+}
+
+func runFile(logDir string) error {
+	fmt.Println(todayPath(logDir))
+	return nil
 }
 
 func runRead(logDir string) error {
-	today := time.Now().Format("2006-01-02") + ".md"
-	path := filepath.Join(logDir, today)
-
-	err := reader.View(path)
+	err := reader.Render(todayPath(logDir))
 	if errors.Is(err, reader.ErrNoFile) {
 		fmt.Println("no entries for today")
 		return nil
 	}
 	return err
+}
+
+func runPager(logDir string) error {
+	err := reader.View(todayPath(logDir))
+	if errors.Is(err, reader.ErrNoFile) {
+		fmt.Println("no entries for today")
+		return nil
+	}
+	return err
+}
+
+func runEdit(cfg config.Config, logDir string) error {
+	path := todayPath(logDir)
+
+	if _, err := os.Stat(path); os.IsNotExist(err) {
+		fmt.Println("no entries for today")
+		return nil
+	}
+
+	return editor.EditFile(path, cfg.Editor, editor.DefaultCheck)
 }
 
 func runWrite(cmd *cli.Command, cfg config.Config, logDir string) error {

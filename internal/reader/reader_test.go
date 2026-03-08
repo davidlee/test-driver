@@ -61,3 +61,37 @@ func TestView_NoFile(t *testing.T) {
 		t.Errorf("View() error = %v, want ErrNoFile", err)
 	}
 }
+
+func TestResolveRenderer_FindsCat(t *testing.T) {
+	tmp := filepath.Join(t.TempDir(), "test.md")
+	if err := os.WriteFile(tmp, []byte("hello"), 0o600); err != nil {
+		t.Fatal(err)
+	}
+
+	bin, argv, err := reader.ResolveRenderer(tmp)
+	if err != nil {
+		t.Fatalf("ResolveRenderer() error: %v", err)
+	}
+
+	if bin == "" {
+		t.Fatal("expected non-empty bin path")
+	}
+
+	if len(argv) == 0 || argv[len(argv)-1] != tmp {
+		t.Errorf("expected argv to end with file path, got %v", argv)
+	}
+
+	// ResolveRenderer must NOT include --pager in argv.
+	for _, arg := range argv {
+		if arg == "--pager" {
+			t.Error("ResolveRenderer must not include --pager")
+		}
+	}
+}
+
+func TestRender_NoFile(t *testing.T) {
+	err := reader.Render("/nonexistent/path/to/file.md")
+	if !errors.Is(err, reader.ErrNoFile) {
+		t.Errorf("Render() error = %v, want ErrNoFile", err)
+	}
+}

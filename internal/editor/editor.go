@@ -52,6 +52,23 @@ func Edit(cfg config.Config, check CommandChecker) (string, error) {
 	return content, nil
 }
 
+// EditFile opens an existing file in the detected editor for in-place editing.
+// Unlike Edit, no temp file is created — the file is edited directly.
+func EditFile(path, cfgEditor string, check CommandChecker) error {
+	editorCmd, err := detectEditor(cfgEditor, check)
+	if err != nil {
+		return fmt.Errorf("detecting editor: %w", err)
+	}
+
+	parts := strings.Fields(editorCmd)
+	parts = append(parts, path)
+	cmd := exec.Command(parts[0], parts[1:]...)
+	cmd.Stdin = os.Stdin
+	cmd.Stdout = os.Stdout
+	cmd.Stderr = os.Stderr
+	return cmd.Run()
+}
+
 func detectEditor(cfgEditor string, check CommandChecker) (string, error) {
 	var candidates []string
 	if cfgEditor != "" {

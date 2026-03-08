@@ -18,8 +18,8 @@ type viewer struct {
 	args []string // args to pass before the file path
 }
 
-// candidates in priority order: glow --pager, rich --markdown --pager, $PAGER, cat.
-func candidates() []viewer {
+// pagerCandidates in priority order: glow --pager, rich --markdown --pager, $PAGER, cat.
+func pagerCandidates() []viewer {
 	out := []viewer{
 		{name: "glow", args: []string{"--pager"}},
 		{name: "rich", args: []string{"--markdown", "--pager"}},
@@ -33,10 +33,16 @@ func candidates() []viewer {
 	return out
 }
 
-// ResolveViewer finds the first available viewer and returns the full path
-// and argv. Exported for testability.
-func ResolveViewer(filePath string) (binPath string, argv []string, err error) {
-	for _, v := range candidates() {
+// rendererCandidates in priority order: glow (stdout, no --pager), cat.
+func rendererCandidates() []viewer {
+	return []viewer{
+		{name: "glow", args: nil},
+		{name: "cat", args: nil},
+	}
+}
+
+func resolve(filePath string, candidates []viewer) (binPath string, argv []string, err error) {
+	for _, v := range candidates {
 		bin, lookErr := exec.LookPath(v.name)
 		if lookErr != nil {
 			continue
@@ -48,17 +54,37 @@ func ResolveViewer(filePath string) (binPath string, argv []string, err error) {
 	return "", nil, fmt.Errorf("no viewer found")
 }
 
-// View displays the file at path using the first available viewer.
-// Replaces the current process via syscall.Exec.
-func View(path string) error {
+// ResolveViewer finds the first available pager viewer. Exported for testability.
+func ResolveViewer(filePath string) (binPath string, argv []string, err error) {
+	return resolve(filePath, pagerCandidates())
+}
+
+// ResolveRenderer finds the first available stdout renderer. Exported for testability.
+func ResolveRenderer(filePath string) (binPath string, argv []string, err error) {
+	return resolve(filePath, rendererCandidates())
+}
+
+func execViewer(path string, resolver func(string) (string, []string, error)) error {
 	if _, err := os.Stat(path); os.IsNotExist(err) {
 		return ErrNoFile
 	}
 
-	bin, argv, err := ResolveViewer(path)
+	bin, argv, err := resolver(path)
 	if err != nil {
 		return err
 	}
 
 	return syscall.Exec(bin, argv, os.Environ())
+}
+
+// View displays the file at path in a pager.
+// Replaces the current process via syscall.Exec.
+func View(path string) error {
+	return execViewer(path, ResolveViewer)
+}
+
+// Render displays the file at path to stdout (no pager).
+// Replaces the current process via syscall.Exec.
+func Render(path string) error {
+	return execViewer(path, ResolveRenderer)
 }

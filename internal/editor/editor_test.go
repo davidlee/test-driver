@@ -1,6 +1,8 @@
 package editor
 
 import (
+	"os"
+	"path/filepath"
 	"testing"
 )
 
@@ -95,6 +97,44 @@ func TestDetectEditor(t *testing.T) {
 				t.Errorf("got %q, want %q", got, tt.want)
 			}
 		})
+	}
+}
+
+func TestEditFile_DetectsEditor(t *testing.T) {
+	// Verify EditFile calls detectEditor correctly.
+	// We use "true" as the editor — it exits 0 immediately, no TTY needed.
+	tmp := filepath.Join(t.TempDir(), "test.md")
+	if err := os.WriteFile(tmp, []byte("hello"), 0o600); err != nil {
+		t.Fatal(err)
+	}
+
+	check := func(cmd string) bool { return cmd == "true" }
+	err := EditFile(tmp, "true", check)
+	if err != nil {
+		t.Fatalf("EditFile() error: %v", err)
+	}
+
+	// Verify file was not deleted or corrupted.
+	got, err := os.ReadFile(tmp)
+	if err != nil {
+		t.Fatalf("reading file after EditFile: %v", err)
+	}
+	if string(got) != "hello" {
+		t.Errorf("file content changed: got %q", string(got))
+	}
+}
+
+func TestEditFile_NoEditor(t *testing.T) {
+	tmp := filepath.Join(t.TempDir(), "test.md")
+	if err := os.WriteFile(tmp, []byte("hello"), 0o600); err != nil {
+		t.Fatal(err)
+	}
+
+	t.Setenv("EDITOR", "")
+	check := func(_ string) bool { return false }
+	err := EditFile(tmp, "", check)
+	if err == nil {
+		t.Fatal("expected error when no editor available")
 	}
 }
 

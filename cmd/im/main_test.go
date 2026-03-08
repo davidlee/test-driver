@@ -31,6 +31,86 @@ func mockEdit(body string) editFunc {
 	}
 }
 
+func TestRunFile_PrintsPath(t *testing.T) {
+	dir := t.TempDir()
+
+	// Capture stdout.
+	old := os.Stdout
+	r, w, _ := os.Pipe()
+	os.Stdout = w
+
+	err := runFile(dir)
+
+	w.Close()
+	os.Stdout = old
+
+	if err != nil {
+		t.Fatalf("unexpected error: %v", err)
+	}
+
+	var buf [4096]byte
+	n, _ := r.Read(buf[:])
+	got := strings.TrimSpace(string(buf[:n]))
+
+	want := filepath.Join(dir, time.Now().Format("2006-01-02")+".md")
+	if got != want {
+		t.Errorf("runFile() printed %q, want %q", got, want)
+	}
+}
+
+func TestRunFile_PrintsPathRegardlessOfFileExistence(t *testing.T) {
+	dir := t.TempDir() // empty dir — no log file exists
+
+	old := os.Stdout
+	r, w, _ := os.Pipe()
+	os.Stdout = w
+
+	err := runFile(dir)
+
+	w.Close()
+	os.Stdout = old
+
+	if err != nil {
+		t.Fatalf("unexpected error: %v", err)
+	}
+
+	var buf [4096]byte
+	n, _ := r.Read(buf[:])
+	got := strings.TrimSpace(string(buf[:n]))
+
+	// Path should be printed even when no file exists.
+	if got == "" {
+		t.Error("expected non-empty path output")
+	}
+}
+
+func TestRunEdit_NoFile(t *testing.T) {
+	dir := t.TempDir()
+	cfg := config.Config{}
+
+	// Capture stdout to verify the "no entries" message.
+	old := os.Stdout
+	r, w, _ := os.Pipe()
+	os.Stdout = w
+
+	err := runEdit(cfg, dir)
+
+	w.Close()
+	os.Stdout = old
+
+	if err != nil {
+		t.Fatalf("unexpected error: %v", err)
+	}
+
+	var buf [4096]byte
+	n, _ := r.Read(buf[:])
+	got := strings.TrimSpace(string(buf[:n]))
+
+	if got != "no entries for today" {
+		t.Errorf("runEdit() printed %q, want %q", got, "no entries for today")
+	}
+}
+
 func TestRunEditorMode_SavesContent(t *testing.T) {
 	dir := t.TempDir()
 	cfg := config.Config{
