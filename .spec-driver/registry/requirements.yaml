@@ -416,13 +416,17 @@ requirements:
     primary_spec: PROD-001
     kind: non-functional
     category: null
-    status: pending
+    status: active
     tags: []
     introduced: null
     implemented_by: []
     verified_by: []
-    coverage_evidence: []
-    coverage_entries: []
+    coverage_evidence:
+    - VT-018
+    coverage_entries:
+    - artefact: VT-018
+      status: verified
+      kind: VT
     path: .spec-driver/product/PROD-001/PROD-001.md
   PROD-001.NF-003:
     label: NF-003
