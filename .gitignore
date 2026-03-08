@@ -1,3 +1,4 @@
 .claude/settings.local.json
 /spec-driver
 /im
+.spec-driver/run/

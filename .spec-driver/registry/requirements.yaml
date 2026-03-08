@@ -13,12 +13,8 @@ requirements:
     implemented_by:
     - DE-002
     verified_by: []
-    coverage_evidence:
-    - VT-001
-    coverage_entries:
-    - artefact: VT-001
-      status: verified
-      kind: VT
+    coverage_evidence: []
+    coverage_entries: []
     path: specify/product/PROD-001/PROD-001.md
   PROD-001.FR-002:
     label: FR-002
@@ -34,12 +30,8 @@ requirements:
     implemented_by:
     - DE-002
     verified_by: []
-    coverage_evidence:
-    - VT-002
-    coverage_entries:
-    - artefact: VT-002
-      status: verified
-      kind: VT
+    coverage_evidence: []
+    coverage_entries: []
     path: specify/product/PROD-001/PROD-001.md
   PROD-001.FR-003:
     label: FR-003
@@ -55,12 +47,8 @@ requirements:
     implemented_by:
     - DE-002
     verified_by: []
-    coverage_evidence:
-    - VT-003
-    coverage_entries:
-    - artefact: VT-003
-      status: verified
-      kind: VT
+    coverage_evidence: []
+    coverage_entries: []
     path: specify/product/PROD-001/PROD-001.md
   PROD-001.FR-004:
     label: FR-004
@@ -76,12 +64,8 @@ requirements:
     implemented_by:
     - DE-002
     verified_by: []
-    coverage_evidence:
-    - VT-004
-    coverage_entries:
-    - artefact: VT-004
-      status: verified
-      kind: VT
+    coverage_evidence: []
+    coverage_entries: []
     path: specify/product/PROD-001/PROD-001.md
   PROD-001.FR-005:
     label: FR-005
@@ -97,12 +81,8 @@ requirements:
     implemented_by:
     - DE-002
     verified_by: []
-    coverage_evidence:
-    - VT-005
-    coverage_entries:
-    - artefact: VT-005
-      status: verified
-      kind: VT
+    coverage_evidence: []
+    coverage_entries: []
     path: specify/product/PROD-001/PROD-001.md
   PROD-001.FR-006:
     label: FR-006
@@ -118,12 +98,8 @@ requirements:
     implemented_by:
     - DE-002
     verified_by: []
-    coverage_evidence:
-    - VT-006
-    coverage_entries:
-    - artefact: VT-006
-      status: verified
-      kind: VT
+    coverage_evidence: []
+    coverage_entries: []
     path: specify/product/PROD-001/PROD-001.md
   PROD-001.FR-007:
     label: FR-007
@@ -139,12 +115,8 @@ requirements:
     implemented_by:
     - DE-002
     verified_by: []
-    coverage_evidence:
-    - VT-007
-    coverage_entries:
-    - artefact: VT-007
-      status: verified
-      kind: VT
+    coverage_evidence: []
+    coverage_entries: []
     path: specify/product/PROD-001/PROD-001.md
   PROD-001.FR-008:
     label: FR-008
@@ -160,12 +132,8 @@ requirements:
     implemented_by:
     - DE-003
     verified_by: []
-    coverage_evidence:
-    - VH-004
-    coverage_entries:
-    - artefact: VH-004
-      status: planned
-      kind: VH
+    coverage_evidence: []
+    coverage_entries: []
     path: specify/product/PROD-001/PROD-001.md
   PROD-001.FR-009:
     label: FR-009
@@ -181,12 +149,8 @@ requirements:
     implemented_by:
     - DE-002
     verified_by: []
-    coverage_evidence:
-    - VT-008
-    coverage_entries:
-    - artefact: VT-008
-      status: verified
-      kind: VT
+    coverage_evidence: []
+    coverage_entries: []
     path: specify/product/PROD-001/PROD-001.md
   PROD-001.FR-010:
     label: FR-010
@@ -202,12 +166,8 @@ requirements:
     implemented_by:
     - DE-003
     verified_by: []
-    coverage_evidence:
-    - VT-014
-    coverage_entries:
-    - artefact: VT-014
-      status: verified
-      kind: VT
+    coverage_evidence: []
+    coverage_entries: []
     path: specify/product/PROD-001/PROD-001.md
   PROD-001.FR-011:
     label: FR-011
@@ -223,12 +183,8 @@ requirements:
     implemented_by:
     - DE-002
     verified_by: []
-    coverage_evidence:
-    - VT-009
-    coverage_entries:
-    - artefact: VT-009
-      status: verified
-      kind: VT
+    coverage_evidence: []
+    coverage_entries: []
     path: specify/product/PROD-001/PROD-001.md
   PROD-001.FR-012:
     label: FR-012
@@ -244,12 +200,8 @@ requirements:
     implemented_by:
     - DE-002
     verified_by: []
-    coverage_evidence:
-    - VT-010
-    coverage_entries:
-    - artefact: VT-010
-      status: verified
-      kind: VT
+    coverage_evidence: []
+    coverage_entries: []
     path: specify/product/PROD-001/PROD-001.md
   PROD-001.FR-013:
     label: FR-013
@@ -345,16 +297,8 @@ requirements:
     implemented_by:
     - DE-003
     verified_by: []
-    coverage_evidence:
-    - VH-001
-    - VT-013
-    coverage_entries:
-    - artefact: VT-013
-      status: verified
-      kind: VT
-    - artefact: VH-001
-      status: verified
-      kind: VH
+    coverage_evidence: []
+    coverage_entries: []
     path: specify/product/PROD-001/PROD-001.md
   PROD-001.FR-019:
     label: FR-019
@@ -386,12 +330,8 @@ requirements:
     implemented_by:
     - DE-001
     verified_by: []
-    coverage_evidence:
-    - VT-011
-    coverage_entries:
-    - artefact: VT-011
-      status: verified
-      kind: VT
+    coverage_evidence: []
+    coverage_entries: []
     path: specify/product/PROD-001/PROD-001.md
   PROD-001.NF-002:
     label: NF-002
@@ -423,12 +363,8 @@ requirements:
     implemented_by:
     - DE-001
     verified_by: []
-    coverage_evidence:
-    - VT-012
-    coverage_entries:
-    - artefact: VT-012
-      status: verified
-      kind: VT
+    coverage_evidence: []
+    coverage_entries: []
     path: specify/product/PROD-001/PROD-001.md
   SPEC-001.FR-001:
     label: FR-001
@@ -437,18 +373,14 @@ requirements:
     - SPEC-001
     primary_spec: SPEC-001
     kind: functional
-    category: assembly
+    category: null
     status: active
     tags: []
     introduced: null
     implemented_by: []
     verified_by: []
-    coverage_evidence:
-    - VT-001
-    coverage_entries:
-    - artefact: VT-001
-      status: verified
-      kind: VT
+    coverage_evidence: []
+    coverage_entries: []
     path: specify/tech/SPEC-001/SPEC-001.md
   SPEC-001.FR-002:
     label: FR-002
@@ -457,18 +389,14 @@ requirements:
     - SPEC-001
     primary_spec: SPEC-001
     kind: functional
-    category: assembly
+    category: null
     status: active
     tags: []
     introduced: null
     implemented_by: []
     verified_by: []
-    coverage_evidence:
-    - VT-002
-    coverage_entries:
-    - artefact: VT-002
-      status: verified
-      kind: VT
+    coverage_evidence: []
+    coverage_entries: []
     path: specify/tech/SPEC-001/SPEC-001.md
   SPEC-001.FR-003:
     label: FR-003
@@ -477,18 +405,14 @@ requirements:
     - SPEC-001
     primary_spec: SPEC-001
     kind: functional
-    category: assembly
+    category: null
     status: active
     tags: []
     introduced: null
     implemented_by: []
     verified_by: []
-    coverage_evidence:
-    - VT-003
-    coverage_entries:
-    - artefact: VT-003
-      status: verified
-      kind: VT
+    coverage_evidence: []
+    coverage_entries: []
     path: specify/tech/SPEC-001/SPEC-001.md
   SPEC-001.FR-004:
     label: FR-004
@@ -497,18 +421,14 @@ requirements:
     - SPEC-001
     primary_spec: SPEC-001
     kind: functional
-    category: assembly
+    category: null
     status: active
     tags: []
     introduced: null
     implemented_by: []
     verified_by: []
-    coverage_evidence:
-    - VT-004
-    coverage_entries:
-    - artefact: VT-004
-      status: verified
-      kind: VT
+    coverage_evidence: []
+    coverage_entries: []
     path: specify/tech/SPEC-001/SPEC-001.md
   SPEC-001.FR-005:
     label: FR-005
@@ -517,18 +437,14 @@ requirements:
     - SPEC-001
     primary_spec: SPEC-001
     kind: functional
-    category: assembly
+    category: null
     status: active
     tags: []
     introduced: null
     implemented_by: []
     verified_by: []
-    coverage_evidence:
-    - VT-005
-    coverage_entries:
-    - artefact: VT-005
-      status: verified
-      kind: VT
+    coverage_evidence: []
+    coverage_entries: []
     path: specify/tech/SPEC-001/SPEC-001.md
   SPEC-001.FR-006:
     label: FR-006
@@ -537,18 +453,14 @@ requirements:
     - SPEC-001
     primary_spec: SPEC-001
     kind: functional
-    category: assembly
+    category: null
     status: active
     tags: []
     introduced: null
     implemented_by: []
     verified_by: []
-    coverage_evidence:
-    - VT-006
-    coverage_entries:
-    - artefact: VT-006
-      status: verified
-      kind: VT
+    coverage_evidence: []
+    coverage_entries: []
     path: specify/tech/SPEC-001/SPEC-001.md
   SPEC-001.FR-007:
     label: FR-007
@@ -557,18 +469,14 @@ requirements:
     - SPEC-001
     primary_spec: SPEC-001
     kind: functional
-    category: assembly
+    category: null
     status: active
     tags: []
     introduced: null
     implemented_by: []
     verified_by: []
-    coverage_evidence:
-    - VT-007
-    coverage_entries:
-    - artefact: VT-007
-      status: verified
-      kind: VT
+    coverage_evidence: []
+    coverage_entries: []
     path: specify/tech/SPEC-001/SPEC-001.md
   SPEC-001.FR-008:
     label: FR-008
@@ -577,18 +485,14 @@ requirements:
     - SPEC-001
     primary_spec: SPEC-001
     kind: functional
-    category: assembly
+    category: null
     status: active
     tags: []
     introduced: null
     implemented_by: []
     verified_by: []
-    coverage_evidence:
-    - VT-008
-    coverage_entries:
-    - artefact: VT-008
-      status: verified
-      kind: VT
+    coverage_evidence: []
+    coverage_entries: []
     path: specify/tech/SPEC-001/SPEC-001.md
   SPEC-001.FR-009:
     label: FR-009
@@ -597,18 +501,14 @@ requirements:
     - SPEC-001
     primary_spec: SPEC-001
     kind: functional
-    category: assembly
+    category: null
     status: active
     tags: []
     introduced: null
     implemented_by: []
     verified_by: []
-    coverage_evidence:
-    - VT-009
-    coverage_entries:
-    - artefact: VT-009
-      status: verified
-      kind: VT
+    coverage_evidence: []
+    coverage_entries: []
     path: specify/tech/SPEC-001/SPEC-001.md
   SPEC-001.NF-001:
     label: NF-001
@@ -617,18 +517,14 @@ requirements:
     - SPEC-001
     primary_spec: SPEC-001
     kind: non-functional
-    category: assembly
+    category: null
     status: active
     tags: []
     introduced: null
     implemented_by: []
     verified_by: []
-    coverage_evidence:
-    - VT-010
-    coverage_entries:
-    - artefact: VT-010
-      status: verified
-      kind: VT
+    coverage_evidence: []
+    coverage_entries: []
     path: specify/tech/SPEC-001/SPEC-001.md
   SPEC-001.NF-002:
     label: NF-002
@@ -637,18 +533,14 @@ requirements:
     - SPEC-001
     primary_spec: SPEC-001
     kind: non-functional
-    category: assembly
+    category: null
     status: pending
     tags: []
     introduced: null
     implemented_by: []
     verified_by: []
-    coverage_evidence:
-    - VA-001
-    coverage_entries:
-    - artefact: VA-001
-      status: planned
-      kind: VA
+    coverage_evidence: []
+    coverage_entries: []
     path: specify/tech/SPEC-001/SPEC-001.md
   SPEC-001.NF-003:
     label: NF-003
@@ -657,7 +549,7 @@ requirements:
     - SPEC-001
     primary_spec: SPEC-001
     kind: non-functional
-    category: assembly
+    category: null
     status: pending
     tags: []
     introduced: null
@@ -673,7 +565,7 @@ requirements:
     - SPEC-001
     primary_spec: SPEC-001
     kind: non-functional
-    category: assembly
+    category: null
     status: pending
     tags: []
     introduced: null

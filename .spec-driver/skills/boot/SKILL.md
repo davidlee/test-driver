@@ -29,3 +29,5 @@ Otherwise - print:
   BOOT SEQUENCE ERROR !!!
 
 Deviation will result in immediate process termination.
+
+After boot, you MUST use `/using-spec-driver` to route ANY substantive work before acting.

@@ -62,13 +62,13 @@ Usage notes:
 
 <skill>
 <name>draft-design-revision</name>
-<description>Draft or refine a design revision (DR) for a delta, capturing current vs target behavior, code impacts, and verification alignment.</description>
+<description>Draft or refine a design revision (DR) for a delta. Use it when a DR needs concrete design shaping, explicit question triage, and section-by-section validation before implementation planning.</description>
 <location>project</location>
 </skill>
 
 <skill>
 <name>execute-phase</name>
-<description>Execute an active implementation phase against DR/IP intent, keep notes current, and surface blockers early. You MUST use this skill when implementing a delta / IP.</description>
+<description>Mandatory execution skill for any delta/IP implementation phase. Use it before code changes, move the owning delta to in-progress, keep notes current, reconcile structured execution docs, and surface blockers early.</description>
 <location>project</location>
 </skill>
 
@@ -104,7 +104,7 @@ Usage notes:
 
 <skill>
 <name>preflight</name>
-<description>Before starting anything new, understand task, intent, and context.</description>
+<description>Use after routing has already happened, when the next step is bounded up-front research to understand a substantive task, surface unknowns and tensions, and assess readiness without drifting into implementation or open-ended exploration.</description>
 <location>project</location>
 </skill>
 
