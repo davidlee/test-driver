@@ -164,3 +164,30 @@ func TestShouldEmitHeading(t *testing.T) {
 		})
 	}
 }
+
+func TestFormatTime(t *testing.T) {
+	tests := []struct {
+		name   string
+		time   time.Time
+		format config.TimeFormat
+		want   string
+	}{
+		{"24h afternoon", tm(14, 30), config.TimeFormat24h, "14:30"},
+		{"24h morning", tm(9, 5), config.TimeFormat24h, "09:05"},
+		{"24h midnight", tm(0, 0), config.TimeFormat24h, "00:00"},
+		{"12h afternoon", tm(14, 30), config.TimeFormat12h, "2:30 PM"},
+		{"12h morning", tm(9, 5), config.TimeFormat12h, "9:05 AM"},
+		{"12h noon", tm(12, 0), config.TimeFormat12h, "12:00 PM"},
+		{"12h midnight", tm(0, 0), config.TimeFormat12h, "12:00 AM"},
+		{"12h 1pm", tm(13, 0), config.TimeFormat12h, "1:00 PM"},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			got := logfile.FormatTime(tt.time, tt.format)
+			if got != tt.want {
+				t.Errorf("FormatTime() = %q, want %q", got, tt.want)
+			}
+		})
+	}
+}

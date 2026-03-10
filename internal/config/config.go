@@ -29,12 +29,23 @@ const (
 	TimestampRoundingRound10  TimestampRounding = "round10"
 )
 
+// TimeFormat controls how timestamp subheadings are displayed.
+type TimeFormat string
+
+// TimeFormat values.
+const (
+	TimeFormat24h TimeFormat = "24h"
+	TimeFormat12h TimeFormat = "12h"
+)
+
 // Config holds all im configuration.
 type Config struct {
 	LogDir            string            `toml:"log_dir"`
 	Editor            string            `toml:"editor"`
 	EditorTimestamp   EditorTimestamp    `toml:"editor_timestamp"`
 	TimestampRounding TimestampRounding  `toml:"timestamp_rounding"`
+	TimeFormat        TimeFormat         `toml:"time_format"`
+	TitleFormat       string             `toml:"title_format"`
 }
 
 // DefaultConfig returns a Config with sensible defaults.
@@ -44,6 +55,8 @@ func DefaultConfig() Config {
 		Editor:            "",
 		EditorTimestamp:   EditorTimestampStart,
 		TimestampRounding: TimestampRoundingAdaptive,
+		TimeFormat:        TimeFormat24h,
+		TitleFormat:       "",
 	}
 }
 
@@ -101,6 +114,14 @@ func (c Config) ResolvedEditor() string {
 	return os.Getenv("VISUAL")
 }
 
+// DefaultTemplatePath returns the standard template file location.
+func DefaultTemplatePath() string {
+	if dir, err := os.UserConfigDir(); err == nil {
+		return filepath.Join(dir, "im", "template.md")
+	}
+	return filepath.Join("~", ".config", "im", "template.md")
+}
+
 func (c Config) validate() error {
 	switch c.EditorTimestamp {
 	case EditorTimestampStart, EditorTimestampEnd:
@@ -114,6 +135,13 @@ func (c Config) validate() error {
 	default:
 		return fmt.Errorf("invalid timestamp_rounding: %q (want %q or %q)",
 			c.TimestampRounding, TimestampRoundingAdaptive, TimestampRoundingRound10)
+	}
+
+	switch c.TimeFormat {
+	case TimeFormat24h, TimeFormat12h:
+	default:
+		return fmt.Errorf("invalid time_format: %q (want %q or %q)",
+			c.TimeFormat, TimeFormat24h, TimeFormat12h)
 	}
 
 	return nil

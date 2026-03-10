@@ -75,15 +75,15 @@ from templates and 12h time is functional.
 - [x] Current code read
 
 ## 4. Exit Criteria / Done When
-- [ ] `internal/template` package exists with embedded default
-- [ ] Default template produces output identical to current `dateHeading()`
-- [ ] Custom template path loads and renders
-- [ ] `TimeFormat` config field with validation
-- [ ] 12h subheading format (`## 2:30 PM`)
-- [ ] `ParseLastTimestamp` handles both 24h and 12h
-- [ ] Appender uses template for new-file creation
-- [ ] All existing tests pass unchanged
-- [ ] `just check` exits 0
+- [x] `internal/tmpl` package exists with embedded default
+- [x] Default template produces output identical to current `dateHeading()`
+- [x] Custom template path loads and renders
+- [x] `TimeFormat` config field with validation
+- [x] 12h subheading format (`## 2:30 PM`)
+- [x] `ParseLastTimestamp` handles both 24h and 12h
+- [x] Appender uses template for new-file creation
+- [x] All existing tests pass unchanged
+- [x] `just check` exits 0
 
 ## 5. Verification
 - `go test ./...`
@@ -97,11 +97,11 @@ from templates and 12h time is functional.
 
 | Status | ID | Description | Parallel? | Notes |
 | --- | --- | --- | --- | --- |
-| [ ] | 1.1 | Config: TimeFormat, TitleFormat | [P] | DR-005 §6.8 |
-| [ ] | 1.2 | 12h time: formatTime + dual parse | [P] | DR-005 §6.6, §6.7 |
-| [ ] | 1.3 | Template package | [P] | DR-005 §6.1 |
-| [ ] | 1.4 | Wire template into appender | | Depends on 1.1, 1.3 |
-| [ ] | 1.5 | Tests | | After 1.4 |
+| [x] | 1.1 | Config: TimeFormat, TitleFormat | [P] | + DefaultTemplatePath |
+| [x] | 1.2 | 12h time: formatTime + dual parse | [P] | + convert12hTo24h extract |
+| [x] | 1.3 | Template package | [P] | Renamed to `internal/tmpl` |
+| [x] | 1.4 | Wire template into appender | | Refactored Append for cyclop |
+| [x] | 1.5 | Tests | | 4 template + 5 parse + 8 format + 2 config |
 
 ### Task Details
 

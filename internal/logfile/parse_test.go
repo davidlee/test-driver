@@ -69,6 +69,42 @@ func TestParseLastTimestamp(t *testing.T) {
 			wantH:   23,
 			wantM:   59,
 		},
+		// 12h format cases.
+		{
+			name:    "12h afternoon",
+			content: "## 2:30 PM\n\nhello\n",
+			wantOK:  true,
+			wantH:   14,
+			wantM:   30,
+		},
+		{
+			name:    "12h morning",
+			content: "## 9:15 AM\n\nhello\n",
+			wantOK:  true,
+			wantH:   9,
+			wantM:   15,
+		},
+		{
+			name:    "12h noon",
+			content: "## 12:00 PM\n\nlunch\n",
+			wantOK:  true,
+			wantH:   12,
+			wantM:   0,
+		},
+		{
+			name:    "12h midnight",
+			content: "## 12:00 AM\n\nlate\n",
+			wantOK:  true,
+			wantH:   0,
+			wantM:   0,
+		},
+		{
+			name:    "12h mixed with 24h returns last",
+			content: "## 10:03\n\nhello\n\n## 2:30 PM\n\nworld\n",
+			wantOK:  true,
+			wantH:   14,
+			wantM:   30,
+		},
 	}
 
 	for _, tt := range tests {

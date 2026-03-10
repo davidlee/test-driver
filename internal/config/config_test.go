@@ -25,6 +25,12 @@ func TestDefaultConfig(t *testing.T) {
 	if cfg.TimestampRounding != config.TimestampRoundingAdaptive {
 		t.Errorf("TimestampRounding = %q, want %q", cfg.TimestampRounding, config.TimestampRoundingAdaptive)
 	}
+	if cfg.TimeFormat != config.TimeFormat24h {
+		t.Errorf("TimeFormat = %q, want %q", cfg.TimeFormat, config.TimeFormat24h)
+	}
+	if cfg.TitleFormat != "" {
+		t.Errorf("TitleFormat = %q, want empty", cfg.TitleFormat)
+	}
 }
 
 func TestLoadMissingFile(t *testing.T) {
@@ -112,6 +118,33 @@ func TestLoadInvalidTimestampRounding(t *testing.T) {
 	_, err := config.Load(path)
 	if err == nil {
 		t.Fatal("expected error for invalid timestamp_rounding, got nil")
+	}
+}
+
+func TestLoadInvalidTimeFormat(t *testing.T) {
+	t.Parallel()
+
+	content := `time_format = "military"` + "\n"
+	path := writeTempConfig(t, content)
+
+	_, err := config.Load(path)
+	if err == nil {
+		t.Fatal("expected error for invalid time_format, got nil")
+	}
+}
+
+func TestLoadValidTimeFormat12h(t *testing.T) {
+	t.Parallel()
+
+	content := `time_format = "12h"` + "\n"
+	path := writeTempConfig(t, content)
+
+	cfg, err := config.Load(path)
+	if err != nil {
+		t.Fatalf("unexpected error: %v", err)
+	}
+	if cfg.TimeFormat != config.TimeFormat12h {
+		t.Errorf("TimeFormat = %q, want %q", cfg.TimeFormat, config.TimeFormat12h)
 	}
 }
 
