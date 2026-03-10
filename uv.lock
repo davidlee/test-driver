@@ -377,7 +377,7 @@ wheels = [
 
 [[package]]
 name = "spec-driver"
-version = "0.7.6"
+version = "0.7.8"
 source = { editable = "spec-driver" }
 dependencies = [
     { name = "jinja2" },
