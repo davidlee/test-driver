@@ -1,6 +1,17 @@
 {
   "version": 2,
-  "languages": {},
+  "languages": {
+    "go": {
+      "cmd/im": "SPEC-002",
+      "internal/cli": "SPEC-003",
+      "internal/config": "SPEC-004",
+      "internal/editor": "SPEC-005",
+      "internal/entry": "SPEC-006",
+      "internal/logfile": "SPEC-007",
+      "internal/reader": "SPEC-008",
+      "internal/tmpl": "SPEC-009"
+    }
+  },
   "metadata": {
     "created": "2026-03-08T17:51:05.715437"
   }

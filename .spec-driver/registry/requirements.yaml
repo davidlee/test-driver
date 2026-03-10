@@ -54,6 +54,7 @@ requirements:
     introduced: null
     implemented_by:
     - DE-002
+    - DE-006
     verified_by: []
     coverage_evidence:
     - VT-003
@@ -283,7 +284,8 @@ requirements:
     status: pending
     tags: []
     introduced: null
-    implemented_by: []
+    implemented_by:
+    - DE-005
     verified_by: []
     coverage_evidence: []
     coverage_entries: []
@@ -299,7 +301,8 @@ requirements:
     status: pending
     tags: []
     introduced: null
-    implemented_by: []
+    implemented_by:
+    - DE-005
     verified_by: []
     coverage_evidence: []
     coverage_entries: []
@@ -315,7 +318,8 @@ requirements:
     status: pending
     tags: []
     introduced: null
-    implemented_by: []
+    implemented_by:
+    - DE-005
     verified_by: []
     coverage_evidence: []
     coverage_entries: []
@@ -400,6 +404,7 @@ requirements:
     introduced: null
     implemented_by:
     - DE-001
+    - DE-006
     verified_by: []
     coverage_evidence:
     - VT-011
@@ -663,7 +668,6 @@ requirements:
     implemented_by: []
     verified_by: []
     coverage_evidence:
-    - VA-001
     - VT-011
     coverage_entries:
     - artefact: VT-011

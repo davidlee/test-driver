@@ -11,12 +11,14 @@ Package config loads and validates im configuration.
 ## Index
 
 - [func DefaultConfigPath\(\) string](<#DefaultConfigPath>)
+- [func DefaultTemplatePath\(\) string](<#DefaultTemplatePath>)
 - [type Config](<#Config>)
   - [func DefaultConfig\(\) Config](<#DefaultConfig>)
   - [func Load\(path string\) \(Config, error\)](<#Load>)
   - [func \(c Config\) ResolvedEditor\(\) string](<#Config.ResolvedEditor>)
   - [func \(c Config\) ResolvedLogDir\(\) \(string, error\)](<#Config.ResolvedLogDir>)
 - [type EditorTimestamp](<#EditorTimestamp>)
+- [type TimeFormat](<#TimeFormat>)
 - [type TimestampRounding](<#TimestampRounding>)
 
 
@@ -29,6 +31,15 @@ func DefaultConfigPath() string
 
 DefaultConfigPath returns the standard config file location.
 
+<a name="DefaultTemplatePath"></a>
+## func DefaultTemplatePath
+
+```go
+func DefaultTemplatePath() string
+```
+
+DefaultTemplatePath returns the standard template file location.
+
 <a name="Config"></a>
 ## type Config
 
@@ -40,6 +51,8 @@ type Config struct {
     Editor            string            `toml:"editor"`
     EditorTimestamp   EditorTimestamp   `toml:"editor_timestamp"`
     TimestampRounding TimestampRounding `toml:"timestamp_rounding"`
+    TimeFormat        TimeFormat        `toml:"time_format"`
+    TitleFormat       string            `toml:"title_format"`
 }
 ```
 
@@ -94,6 +107,24 @@ type EditorTimestamp string
 const (
     EditorTimestampStart EditorTimestamp = "start"
     EditorTimestampEnd   EditorTimestamp = "end"
+)
+```
+
+<a name="TimeFormat"></a>
+## type TimeFormat
+
+TimeFormat controls how timestamp subheadings are displayed.
+
+```go
+type TimeFormat string
+```
+
+<a name="TimeFormat24h"></a>TimeFormat values.
+
+```go
+const (
+    TimeFormat24h TimeFormat = "24h"
+    TimeFormat12h TimeFormat = "12h"
 )
 ```
 

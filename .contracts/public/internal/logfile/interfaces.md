@@ -11,6 +11,7 @@ Package logfile manages daily log file creation, timestamp logic, and append.
 ## Index
 
 - [Constants](<#constants>)
+- [func FormatTime\(t time.Time, format config.TimeFormat\) string](<#FormatTime>)
 - [func ParseLastTimestamp\(content string\) \(time.Time, bool\)](<#ParseLastTimestamp>)
 - [func ShouldEmitHeading\(strategy config.TimestampRounding, now, last time.Time, hasLast bool\) \(bool, time.Time\)](<#ShouldEmitHeading>)
 - [type Appender](<#Appender>)
@@ -26,6 +27,15 @@ Package logfile manages daily log file creation, timestamp logic, and append.
 const SubheadingLevel = "##"
 ```
 
+<a name="FormatTime"></a>
+## func FormatTime
+
+```go
+func FormatTime(t time.Time, format config.TimeFormat) string
+```
+
+FormatTime formats a time for subheading display per the configured format.
+
 <a name="ParseLastTimestamp"></a>
 ## func ParseLastTimestamp
 
@@ -33,7 +43,7 @@ const SubheadingLevel = "##"
 func ParseLastTimestamp(content string) (time.Time, bool)
 ```
 
-ParseLastTimestamp extracts the time from the last \#\# HH:MM heading in content. Returns the parsed time \(on a zero date\) and true, or zero time and false if no valid heading is found.
+ParseLastTimestamp extracts the time from the last timestamp heading in content. Handles both 24h and 12h formats. Returns the parsed time \(on a zero date\) and true, or zero time and false if no valid heading is found.
 
 <a name="ShouldEmitHeading"></a>
 ## func ShouldEmitHeading

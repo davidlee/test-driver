@@ -1,7 +1,7 @@
 ---
 id: PROD-001
 slug: interstitial_mindfulness_logger
-name: Interstitial Mindfulness Logger
+name: Interstitial Logger
 created: '2026-03-04'
 updated: '2026-03-04'
 status: draft
