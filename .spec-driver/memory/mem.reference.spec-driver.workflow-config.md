@@ -74,8 +74,8 @@ environment.
 
 | Key | Default | Description |
 |-----|---------|-------------|
-| `artefacts_root` | `"doc/artefacts"` | Design document directory |
-| `plans_root` | `"doc/plans"` | Implementation plan directory |
+| `artefacts_root` | `"docs/artefacts"` | Design document directory |
+| `plans_root` | `"docs/plans"` | Implementation plan directory |
 
 ### [policy]
 
@@ -110,12 +110,6 @@ environment.
 |-----|---------|-------------|
 | `doctrine_path` | `".spec-driver/doctrine.md"` | Project doctrine file loaded at agent boot |
 
-### [authoring]
-
-| Key | Default | Description |
-|-----|---------|-------------|
-| `engine` | `"superpowers"` | Content engine: `"superpowers"` (supekku) or `"spec_driver"` (built-in) |
-
 ### [skills]
 
 | Key | Default | Description |
@@ -149,7 +143,7 @@ Directory name overrides for `.spec-driver/` subdirectories:
 - **Template generation**: `generate_default_workflow_toml()` in same file
 - **Path initialisation from [dirs]**: `supekku/scripts/lib/core/paths.py`
 - **Agent template rendering**: `supekku/scripts/lib/core/agent_docs.py`
-- **Skills sync ([skills], [integration])**: `supekku/scripts/lib/skills/sync.py`
+- **Skills install ([skills], [integration])**: `supekku/scripts/lib/skills/sync.py`
 - **Sync preferences ([sync])**: `supekku/scripts/lib/core/sync_preferences.py`
 - **Event gating ([events])**: `supekku/cli/main.py`
 - **Strict mode**: `supekku/scripts/complete_delta.py`

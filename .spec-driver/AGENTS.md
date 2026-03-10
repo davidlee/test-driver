@@ -20,7 +20,7 @@ Usage notes:
 
 <skill>
 <name>audit-change</name>
-<description>Perform verification/audit pass after implementation (or as discovery/backfill), reconcile against specs/contracts, and route findings into closure or follow-up change.</description>
+<description>Canonical reconciliation runsheet for AUD artefacts. Create or update the audit, disposition every finding, reconcile specs/contracts, and hand off to closure only when audit state supports it.</description>
 <location>project</location>
 </skill>
 
@@ -128,7 +128,7 @@ Usage notes:
 
 <skill>
 <name>shape-revision</name>
-<description>Shape a spec revision when requirements/responsibilities move. Use this before delta scoping when policy/doctrine requires revision-first flow.</description>
+<description>Shape a spec revision when requirements/responsibilities move. Use this before delta scoping when policy/doctrine requires revision-first flow, or when audit reconciliation shows authority must move.</description>
 <location>project</location>
 </skill>
 

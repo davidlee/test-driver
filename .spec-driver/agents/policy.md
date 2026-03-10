@@ -10,6 +10,26 @@ spec-driver list adrs -s accepted
 
 Read any relevant ADR before proceeding.
 
+## Policies
+
+Project policies are enabled.
+
+List them now; read any which might apply before any design or implementation.
+
+```
+spec-driver list policies -s required
+```
+
+## Standards
+
+Technical standards are enabled.
+
+List them now; read any which might apply before any design or implementation.
+
+```
+spec-driver list standards -s required
+```
+
 ## Requirement for Proactive Compliance
 
 Remember these, and read any potentially relevant artefacts before proceeding

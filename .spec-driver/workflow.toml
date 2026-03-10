@@ -1,3 +1,3 @@
-spec_driver_installed_version = "0.7.6"
+spec_driver_installed_version = "0.7.8"
 [tool]
 exec = "spec-driver"

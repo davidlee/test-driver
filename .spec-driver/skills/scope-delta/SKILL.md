@@ -19,6 +19,11 @@ Process:
      - `uv run spec-driver create delta "<title>" --spec SPEC-XXX --requirement SPEC-XXX.FR-001`
    - From backlog item:
      - `uv run spec-driver create delta --from-backlog ISSUE-XXX`
+     - `--from-backlog` auto-populates `context_inputs` and `relations` from the source item.
+   - When creating a delta motivated by a backlog item (even without `--from-backlog`), ensure:
+     - `context_inputs` includes `type: issue` (or appropriate type) with the backlog item ID
+     - `relations` includes `type: relates_to` (or more specific type) with the backlog item ID as target
+     - `applies_to.requirements` includes any requirement IDs from the backlog item
 4. Ensure delivery bundle is present and usable:
    - `DE-XXX.md`
    - `DR-XXX.md` (if non-trivial change)
@@ -28,8 +33,9 @@ Process:
    - `applies_to` specs/requirements
    - Context inputs and risks
    - Verification/closure intent
-6. If design is non-trivial, run `/draft-design-revision`.
-7. Run `/plan-phases` to create/refine phase sheets before implementation.
+6. If design is non-trivial, run `/draft-design-revision` before `/plan-phases`.
+7. Do not treat IP or phase creation as a substitute for missing design. `/plan-phases` comes after DR work for non-trivial changes, not instead of it.
+8. Run `/plan-phases` to create/refine phase sheets before implementation.
 
 Outcomes:
 - A delta exists with clear scope and traceability targets.

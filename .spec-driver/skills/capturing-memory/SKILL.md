@@ -33,6 +33,14 @@ Procedure:
       - Add when useful: `scope`, `priority`, `verified`, `review_by`, `provenance.sources`.
       - Usually omit: `audience: [human, agent]` (default), `created` (low value vs `updated`/`verified`), and `visibility` unless you are intentionally wiring pre-read/write hook surfacing.
     - If the content is risky or easy to drift, add/ensure frontmatter: `provenance.sources` (code/doc/adr/spec/commit refs), `verified` (today), and `review_by` (short horizon for volatile items).
+    - **Confidence calibration** — set `confidence` in frontmatter (required; default `medium`):
+      - `low`: "I'm inferring or generalizing — this should be validated"
+      - `medium`: "I derived this from reasonable context — probably right"
+      - `high`: "I verified this against code, specs, or direct observation"
+      - Default to `medium`. Require explicit justification for `high`.
+      - Remember: creating a memory is authoring, not verification. Do not claim
+        `high` confidence unless you truly verified the content against the source
+        material during this session.
 
 4) Scope it so it will be findable:
     - Add `scope.paths` for exact file(s) when the memory applies to specific files (strongest match).
@@ -54,5 +62,5 @@ Procedure:
       surface through those `--path` queries.
 
 7) Resolve inline links (if body contains `[[...]]`):
-    - `spec-driver resolve links` — populates `links.out` from body tokens.
+    - `spec-driver admin resolve links` — populates `links.out` from body tokens.
     - Prefer running this on-demand (or in bulk maintenance passes) rather than committing large generated link blocks by default.

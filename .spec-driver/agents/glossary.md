@@ -10,8 +10,6 @@ A **card** is the primary record for task execution and implementation notes. De
 
 The term "card" in skills and workflows refers to whichever of these the project uses as its primary unit of work — not exclusively a kanban card.
 
-Cards root: `kanban/`
-ID format: `TNNN-slug`
 ## Specifications
 
 - **PROD Spec** (`PROD-xxx`): Product-level specification capturing user problems, hypotheses, and outcomes. Location: `.spec-driver/product/PROD-xxx/`.
