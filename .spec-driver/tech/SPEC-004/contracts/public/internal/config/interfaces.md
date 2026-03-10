@@ -1,1 +1,0 @@
-../../../../../../../.contracts/public/internal/config/interfaces.md

@@ -1,1 +1,0 @@
-../../../../../../../.contracts/public/internal/editor/interfaces.md
